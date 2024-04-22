@@ -15,11 +15,12 @@ import { MdAnnouncement, MdReportProblem } from 'react-icons/md';
 import { FcStatistics } from 'react-icons/fc';
 import { TbAdjustmentsCheck } from 'react-icons/tb';
 import { BiSolidLogOut } from 'react-icons/bi';
+import logo from '../../assets/madvault-logo.png';
 
 const SideBar = () => {
   return (
     <nav className={classes.sideBarContainer}>
-      <h3 className={classes.logo}>CPL</h3>
+      <img src={logo} alt="logo" className={classes.logo} />
       <div className={classes.linksContainer}>
         <div className={classes.homeLinkCont}>
           <p className={classes.linkHeading}>HOME</p>
