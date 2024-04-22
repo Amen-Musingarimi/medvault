@@ -4,9 +4,10 @@
   align-items: center;
   justify-content: flex-start;
   background-color: #008080;
-  gap: 4rem;
+  gap: 0rem;
   width: 20%;
-  padding: 2%;
+  padding: 0 2%;
+  padding-bottom: 1%;
   color: #fff;
 }
 
@@ -47,4 +48,9 @@
   text-decoration: none;
   padding-left: 1rem;
   font-size: 0.85rem;
+}
+
+.danger {
+  color: #880808;
+  font-weight: 600;
 }
