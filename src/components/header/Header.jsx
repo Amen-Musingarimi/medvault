@@ -26,8 +26,8 @@ const Header = () => {
           placeholder="Search Patient By ID e.g 22-778899A00"
           className={classes.search_form}
         />
-        <button type="submit">
-          <FaSearch />
+        <button type="submit" className={classes.search_btn}>
+          Search
         </button>
       </form>
       <button type="submit">
