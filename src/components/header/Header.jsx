@@ -23,13 +23,16 @@ const Header = () => {
           type="text"
           value={searchTerm}
           onChange={handleSearchChange}
-          placeholder="Search..."
+          placeholder="Search Patient By ID e.g 22-778899A00"
+          className={classes.search_form}
         />
         <button type="submit">
           <FaSearch />
         </button>
       </form>
-      <IoNotifications />
+      <button type="submit">
+        <IoNotifications />
+      </button>
     </div>
   );
 };

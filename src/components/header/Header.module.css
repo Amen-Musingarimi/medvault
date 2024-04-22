@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 80%;
+  padding: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.search_form {
+  width: 20rem;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #008080;
+  border-radius: 4px;
+}
