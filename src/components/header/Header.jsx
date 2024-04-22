@@ -29,7 +29,7 @@ const Header = () => {
           Search
         </button>
       </form>
-      <button type="submit">
+      <button type="submit" className={classes.notification_btn}>
         <IoNotifications />
       </button>
     </div>

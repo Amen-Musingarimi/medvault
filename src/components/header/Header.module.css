@@ -26,6 +26,18 @@
   cursor: pointer;
 }
 
+.notification_btn {
+  background-color: inherit;
+  border: none;
+  font-size: 1.4rem;
+  color: #008080;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.75rem;
+  cursor: pointer;
+}
+
 .search_btn:hover {
   background-color: #005050;
 }
