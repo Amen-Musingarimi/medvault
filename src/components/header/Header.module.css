@@ -2,13 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 10rem;
   width: 80%;
   padding: 1rem;
   border-bottom: 1px solid #e6e4e4;
 }
 
-.search_form {
+.search_input {
   width: 20rem;
   padding: 0.5rem;
   outline: none;
@@ -23,4 +23,9 @@
   color: #fff;
   border: none;
   border-radius: 3px;
+  cursor: pointer;
+}
+
+.search_btn:hover {
+  background-color: #005050;
 }

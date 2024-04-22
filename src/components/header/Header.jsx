@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
 import { IoNotifications } from 'react-icons/io5';
 import classes from './Header.module.css';
 
@@ -18,13 +17,13 @@ const Header = () => {
 
   return (
     <div className={classes.header}>
-      <form onSubmit={handleSearchSubmit}>
+      <form className={classes.search_form} onSubmit={handleSearchSubmit}>
         <input
           type="text"
           value={searchTerm}
           onChange={handleSearchChange}
           placeholder="Search Patient By ID e.g 22-778899A00"
-          className={classes.search_form}
+          className={classes.search_input}
         />
         <button type="submit" className={classes.search_btn}>
           Search
