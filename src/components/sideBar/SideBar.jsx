@@ -27,7 +27,7 @@ const SideBar = () => {
             <SlCalender />
             <p className={classes.homeText}>Manage Patience</p>
           </Link>
-          <Link className={classes.homeLink}>
+          <Link to="/add-patient" exact="true" className={classes.homeLink}>
             <AiFillSchedule />
             <p className={classes.homeText}>Add Patient</p>
           </Link>

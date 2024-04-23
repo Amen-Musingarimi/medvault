@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import SideBar from './components/sideBar/SideBar';
 import Header from './components/header/Header';
 import Authentication from './components/auth/Authentication';
+import AddPatientForm from './components/patients/AddPatient';
 import './App.css';
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <Header />
         <Routes>
           <Route exact path="/auth" element={<Authentication />} />
+          <Route exact path="/add-patient" index element={<AddPatientForm />} />
         </Routes>
       </div>
     </div>
