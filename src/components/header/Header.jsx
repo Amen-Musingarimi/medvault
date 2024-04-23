@@ -11,8 +11,8 @@ const Header = () => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    // You can perform your search logic here with the searchTerm state
     console.log('Search term:', searchTerm);
+    setSearchTerm('');
   };
 
   return (

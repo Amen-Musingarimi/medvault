@@ -6,9 +6,14 @@
   background-color: #008080;
   gap: 0rem;
   width: 20%;
+  height: 100vh;
   padding: 0 2%;
   padding-bottom: 1%;
   color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
 }
 
 .logo {
@@ -23,7 +28,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-weight: 500;
+  font-weight: 200;
 }
 
 .linksContainer {
@@ -35,7 +40,7 @@
 }
 
 .linkHeading {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: #dfff00;
 }
 
