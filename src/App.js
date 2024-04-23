@@ -9,10 +9,12 @@ const App = () => {
   return (
     <div className="main-container">
       <SideBar />
-      <Header />
-      <Routes>
-        <Route exact path="/auth" element={<Authentication />} />
-      </Routes>
+      <div className="scrollable_main">
+        <Header />
+        <Routes>
+          <Route exact path="/auth" element={<Authentication />} />
+        </Routes>
+      </div>
     </div>
   );
 };
