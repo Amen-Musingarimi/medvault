@@ -22,13 +22,6 @@ const AddPatientForm = () => {
     emergencyContactName: '',
     emergencyContactRelationship: '',
     emergencyContactPhoneNumber: '',
-    preferredLanguage: '',
-    ethnicity: '',
-    occupation: '',
-    lifestyleFactors: '',
-    religiousOrCulturalConsiderations: '',
-    consentForTreatment: false,
-    privacyPolicyAcknowledgment: false,
     additionalNotes: '',
   });
 
@@ -51,28 +44,27 @@ const AddPatientForm = () => {
       <div className={classes.personal_details}>
         <h2>Personal Details</h2>
         <div className={classes.personal_details_inputs}>
-          <label>
-            Full Name:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Full Name:</label>
             <input
               type="text"
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Date of Birth:
+          </div>
+          <div className={classes.form_control}>
+            <label>Date of Birth:</label>
             <input
               type="date"
               name="dateOfBirth"
               value={formData.dateOfBirth}
               onChange={handleChange}
             />
-          </label>
-
-          <label>
-            Gender:
+          </div>
+          <div className={classes.form_control}>
+            <label>Gender:</label>
             <select
               name="gender"
               value={formData.gender}
@@ -83,36 +75,33 @@ const AddPatientForm = () => {
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
-          </label>
-
-          <label>
-            Phone Number:
+          </div>
+          <div className={classes.form_control}>
+            <label>Phone Number:</label>
             <input
               type="tel"
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleChange}
             />
-          </label>
-
-          <label>
-            Email Address:
+          </div>
+          <div className={classes.form_control}>
+            <label>Email Address:</label>
             <input
               type="email"
               name="emailAddress"
               value={formData.emailAddress}
               onChange={handleChange}
             />
-          </label>
-
-          <label>
-            Address:
+          </div>
+          <div className={classes.form_control}>
+            <label>Address:</label>
             <textarea
               name="address"
               value={formData.address}
               onChange={handleChange}
             />
-          </label>
+          </div>
         </div>
       </div>
       <div className={classes.personal_details}>
