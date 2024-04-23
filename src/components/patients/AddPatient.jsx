@@ -55,7 +55,7 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label>Date of Birth:</label>
+            <label className={classes.input_label}>Date of Birth:</label>
             <input
               type="date"
               name="dateOfBirth"
@@ -64,7 +64,7 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label>Gender:</label>
+            <label className={classes.input_label}>Gender:</label>
             <select
               name="gender"
               value={formData.gender}
@@ -77,7 +77,7 @@ const AddPatientForm = () => {
             </select>
           </div>
           <div className={classes.form_control}>
-            <label>Phone Number:</label>
+            <label className={classes.input_label}>Phone Number:</label>
             <input
               type="tel"
               name="phoneNumber"
@@ -86,7 +86,7 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label>Email Address:</label>
+            <label className={classes.input_label}>Email Address:</label>
             <input
               type="email"
               name="emailAddress"
@@ -95,7 +95,7 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label>Address:</label>
+            <label className={classes.input_label}>Address:</label>
             <textarea
               name="address"
               value={formData.address}
@@ -107,17 +107,16 @@ const AddPatientForm = () => {
       <div className={classes.personal_details}>
         <h2>Next of Keen Details</h2>
         <div className={classes.personal_details_inputs}>
-          <label>
-            Next of keen:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Next of keen:</label>
             <input
               type="text"
               name="emergencyContactName"
               value={formData.emergencyContactName}
               onChange={handleChange}
             />
-          </label>
-
-          <label>
+          </div>
+          <label className={classes.input_label}>
             Relationship:
             <input
               type="text"
@@ -126,22 +125,21 @@ const AddPatientForm = () => {
               onChange={handleChange}
             />
           </label>
-
-          <label>
-            Emergency Contact Phone Number:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Phone Number:</label>
             <input
               type="tel"
               name="emergencyContactPhoneNumber"
               value={formData.emergencyContactPhoneNumber}
               onChange={handleChange}
             />
-          </label>
+          </div>
         </div>
       </div>
       <div className={classes.personal_details}>
         <h2>Healthy Details</h2>
         <div className={classes.personal_details_inputs}>
-          <label>
+          <label className={classes.input_label}>
             Allergies:
             <input
               type="text"
@@ -151,7 +149,7 @@ const AddPatientForm = () => {
             />
           </label>
 
-          <label>
+          <label className={classes.input_label}>
             Medical Conditions:
             <input
               type="text"
@@ -161,7 +159,7 @@ const AddPatientForm = () => {
             />
           </label>
 
-          <label>
+          <label className={classes.input_label}>
             Family Medical History:
             <input
               type="text"
@@ -171,7 +169,7 @@ const AddPatientForm = () => {
             />
           </label>
 
-          <label>
+          <label className={classes.input_label}>
             Surgical History:
             <input
               type="text"
@@ -181,7 +179,7 @@ const AddPatientForm = () => {
             />
           </label>
 
-          <label>
+          <label className={classes.input_label}>
             Medications:
             <input
               type="text"
@@ -191,7 +189,7 @@ const AddPatientForm = () => {
             />
           </label>
 
-          <label>
+          <label className={classes.input_label}>
             Immunizations:
             <input
               type="text"
