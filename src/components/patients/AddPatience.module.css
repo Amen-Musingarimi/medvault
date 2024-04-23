@@ -38,3 +38,14 @@
 .input_label {
   color: #008080;
 }
+
+.input_area {
+  width: 20rem;
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid #008080;
+  border-radius: 4px;
+  color: inherit;
+  font-family: inherit;
+  margin-right: 0.5rem;
+}

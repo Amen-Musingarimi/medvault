@@ -61,6 +61,7 @@ const AddPatientForm = () => {
               name="dateOfBirth"
               value={formData.dateOfBirth}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
@@ -69,6 +70,7 @@ const AddPatientForm = () => {
               name="gender"
               value={formData.gender}
               onChange={handleChange}
+              className={classes.input_area}
             >
               <option value="">Select Gender</option>
               <option value="male">Male</option>
@@ -83,6 +85,7 @@ const AddPatientForm = () => {
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
@@ -92,14 +95,17 @@ const AddPatientForm = () => {
               name="emailAddress"
               value={formData.emailAddress}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>Address:</label>
-            <textarea
+            <input
+              type="address"
               name="address"
               value={formData.address}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
         </div>
