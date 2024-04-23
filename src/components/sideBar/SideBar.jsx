@@ -62,6 +62,21 @@ const SideBar = () => {
             <p className={classes.homeText}>Logout</p>
           </Link>
         </div>
+        <div className={classes.homeLinkCont}>
+          <p className={classes.linkHeading}>YOUR PROFILE</p>
+          <Link className={classes.homeLink}>
+            <FaUserCog />
+            <p className={classes.homeText}>Details</p>
+          </Link>
+          <Link className={classes.homeLink}>
+            <FcStatistics />
+            <p className={classes.homeText}>Settings</p>
+          </Link>
+          <Link className={`${classes.homeLink} ${classes.danger}`}>
+            <BiSolidLogOut />
+            <p className={classes.homeText}>Logout</p>
+          </Link>
+        </div>
       </div>
     </nav>
   );
