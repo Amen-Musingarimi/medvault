@@ -1,35 +1,43 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createPatient } from '../../redux/patientsSlice';
 import classes from './AddPatience.module.css';
 
 const AddPatientForm = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
+  const dispatch = useDispatch();
+
+  const initialFormData = {
+    firstName: '',
+    lastName: '',
+    idNumber: '',
     dateOfBirth: '',
     gender: '',
     phoneNumber: '',
     emailAddress: '',
-    address: '',
-    allergies: '',
+    residentialAddress: '',
+    keenFirstName: '',
+    keenLastName: '',
+    keenRelationship: '',
+    keenPhoneNumber: '',
     medicalConditions: '',
+    allergies: '',
+    disability: '',
     familyMedicalHistory: '',
     surgicalHistory: '',
-    medications: '',
-    immunizations: '',
-    insuranceProvider: '',
+    immunizationStatus: '',
+    medicalAidSociety: '',
+    policyHolderName: '',
     policyNumber: '',
-    groupNumber: '',
-    primaryCarePhysician: '',
-    emergencyContactName: '',
-    emergencyContactRelationship: '',
-    emergencyContactPhoneNumber: '',
-    additionalNotes: '',
-  });
+    memberContactNumber: '',
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: value,
     }));
   };
 
@@ -37,38 +45,81 @@ const AddPatientForm = () => {
     e.preventDefault();
     // Handle form submission (e.g., send data to backend)
     console.log(formData);
+    dispatch(createPatient(formData));
+    setFormData(initialFormData);
   };
 
   return (
     <form onSubmit={handleSubmit} className={classes.add_patient_form}>
+      {/* Patient Details Input Forms */}
       <div className={classes.personal_details}>
-        <h2>Personal Details</h2>
+        <h2 className={classes.form_section_heading}>Personal Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Full Name:</label>
+            <label className={classes.input_label}>
+              First Name: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
-              name="fullName"
-              value={formData.fullName}
+              name="firstName"
+              placeholder="John"
+              value={formData.firstName}
+              onChange={handleChange}
+              className={classes.input_area}
+              required
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Last Name: <span className={classes.required_sign}>*</span>
+            </label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Doe"
+              value={formData.lastName}
+              onChange={handleChange}
+              required
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              ID Number: <span className={classes.required_sign}>*</span>
+            </label>
+            <input
+              type="text"
+              name="idNumber"
+              placeholder="22-778899A00"
+              value={formData.idNumber}
+              onChange={handleChange}
+              required
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Date of Birth: <span className={classes.required_sign}>*</span>
+            </label>
+            <input
+              type="date"
+              name="dateOfBirth"
+              required
+              value={formData.dateOfBirth}
               onChange={handleChange}
               className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label>Date of Birth:</label>
-            <input
-              type="date"
-              name="dateOfBirth"
-              value={formData.dateOfBirth}
-              onChange={handleChange}
-            />
-          </div>
-          <div className={classes.form_control}>
-            <label>Gender:</label>
+            <label className={classes.input_label}>
+              Gender: <span className={classes.required_sign}>*</span>
+            </label>
             <select
               name="gender"
               value={formData.gender}
+              required
               onChange={handleChange}
+              className={classes.input_area}
             >
               <option value="">Select Gender</option>
               <option value="male">Male</option>
@@ -77,184 +128,270 @@ const AddPatientForm = () => {
             </select>
           </div>
           <div className={classes.form_control}>
-            <label>Phone Number:</label>
+            <label className={classes.input_label}>
+              Phone Number: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="tel"
               name="phoneNumber"
+              placeholder="0778000111"
+              required
               value={formData.phoneNumber}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label>Email Address:</label>
+            <label className={classes.input_label}>
+              Email Address:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="email"
               name="emailAddress"
+              placeholder="johndoe@email.com"
               value={formData.emailAddress}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label>Address:</label>
-            <textarea
-              name="address"
-              value={formData.address}
+            <label className={classes.input_label}>
+              Residential Address:{' '}
+              <span className={classes.required_sign}>*</span>
+            </label>
+            <input
+              type="address"
+              name="residentialAddress"
+              placeholder="1 Med Street, Mabelreign, Harare"
+              required
+              value={formData.residentialAddress}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
         </div>
       </div>
+      {/* Next of Keen Input Forms */}
       <div className={classes.personal_details}>
-        <h2>Next of Keen Details</h2>
+        <h2 className={classes.form_section_heading}>Next of Keen Details</h2>
         <div className={classes.personal_details_inputs}>
-          <label>
-            Next of keen:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              First Name: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
-              name="emergencyContactName"
-              value={formData.emergencyContactName}
+              name="keenFirstName"
+              placeholder="Jammy"
+              required
+              value={formData.keenFirstName}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Relationship:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Last Name: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
-              name="emergencyContactRelationship"
-              value={formData.emergencyContactRelationship}
+              name="keenLastName"
+              placeholder="Jodol"
+              required
+              value={formData.keenLastName}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Emergency Contact Phone Number:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Relationship: <span className={classes.required_sign}>*</span>
+            </label>
+            <input
+              type="text"
+              name="keenRelationship"
+              required
+              value={formData.keenRelationship}
+              placeholder="Husband"
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Phone Number: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="tel"
-              name="emergencyContactPhoneNumber"
-              value={formData.emergencyContactPhoneNumber}
+              name="keenPhoneNumber"
+              placeholder="0778000111"
+              required
+              value={formData.keenPhoneNumber}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
+          </div>
         </div>
       </div>
+      {/* Healthy Details Input Forms */}
       <div className={classes.personal_details}>
-        <h2>Healthy Details</h2>
+        <h2 className={classes.form_section_heading}>Healthy Details</h2>
         <div className={classes.personal_details_inputs}>
-          <label>
-            Allergies:
-            <input
-              type="text"
-              name="allergies"
-              value={formData.allergies}
-              onChange={handleChange}
-            />
-          </label>
-
-          <label>
-            Medical Conditions:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Medical Conditions:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="medicalConditions"
+              placeholder="Diabetes, Asthma"
               value={formData.medicalConditions}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Family Medical History:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Allergies:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
+            <input
+              type="text"
+              name="allergies"
+              placeholder="Penicillin, Pollen"
+              value={formData.allergies}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Disabilities:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
+            <input
+              type="text"
+              name="disability"
+              placeholder="Blind, Deaf"
+              value={formData.disability}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Family Medical History:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="familyMedicalHistory"
+              placeholder="Diabetes"
               value={formData.familyMedicalHistory}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Surgical History:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Past Medical Procedures:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="surgicalHistory"
+              placeholder="C-Section"
               value={formData.surgicalHistory}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Medications:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Immunization Status:{' '}
+              <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
-              name="medications"
-              value={formData.medications}
+              name="immunizationStatus"
+              placeholder="All except Polio"
+              required
+              value={formData.immunizationStatus}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Immunizations:
-            <input
-              type="text"
-              name="immunizations"
-              value={formData.immunizations}
-              onChange={handleChange}
-            />
-          </label>
+          </div>
         </div>
       </div>
+      {/* Policy Information Input Forms */}
       <div className={classes.personal_details}>
-        <h2>Policy Information</h2>
+        <h2 className={classes.form_section_heading}>
+          Medical Aid Information
+        </h2>
         <div className={classes.personal_details_inputs}>
-          <label>
-            Insurance Provider:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Medical Aid Society:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
-              name="insuranceProvider"
-              value={formData.insuranceProvider}
+              name="medicalAidSociety"
+              placeholder="CIMAS"
+              value={formData.medicalAidSociety}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Policy Number:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Member's Name:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
+            <input
+              type="text"
+              name="policyHolderName"
+              placeholder="John Doe"
+              value={formData.policyHolderName}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Policy Number:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="policyNumber"
+              placeholder="01020304"
               value={formData.policyNumber}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Group Number:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Member's Contact Number:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
-              name="groupNumber"
-              value={formData.groupNumber}
+              name="memberContactNumber"
+              placeholder="0778000111"
+              value={formData.memberContactNumber}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Primary Care Physician:
-            <input
-              type="text"
-              name="primaryCarePhysician"
-              value={formData.primaryCarePhysician}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Additional Notes:
-            <textarea
-              name="additionalNotes"
-              value={formData.additionalNotes}
-              onChange={handleChange}
-            />
-          </label>
+          </div>
         </div>
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" className={classes.submit_btn}>
+        Submit
+      </button>
     </form>
   );
 };
