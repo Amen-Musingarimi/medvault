@@ -21,9 +21,11 @@ const AddPatientForm = () => {
     policyNumber: '',
     groupNumber: '',
     primaryCarePhysician: '',
-    emergencyContactName: '',
-    emergencyContactRelationship: '',
-    emergencyContactPhoneNumber: '',
+    keenFirstName: '',
+    keenLastName: '',
+    keenRelationship: '',
+    keenPhoneNumber: '',
+    keenAddress: '',
     additionalNotes: '',
   });
 
@@ -43,6 +45,7 @@ const AddPatientForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={classes.add_patient_form}>
+      {/* Patient Details Input Forms */}
       <div className={classes.personal_details}>
         <h2 className={classes.form_section_heading}>Personal Details</h2>
         <div className={classes.personal_details_inputs}>
@@ -138,6 +141,7 @@ const AddPatientForm = () => {
           </div>
         </div>
       </div>
+      {/* Next of Keen Input Forms */}
       <div className={classes.personal_details}>
         <h2 className={classes.form_section_heading}>Next of Keen Details</h2>
         <div className={classes.personal_details_inputs}>
@@ -148,17 +152,19 @@ const AddPatientForm = () => {
               name="emergencyContactName"
               value={formData.emergencyContactName}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
-          <label className={classes.input_label}>
-            Relationship:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Relationship:</label>
             <input
               type="text"
               name="emergencyContactRelationship"
               value={formData.emergencyContactRelationship}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
+          </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>Phone Number:</label>
             <input
@@ -166,124 +172,134 @@ const AddPatientForm = () => {
               name="emergencyContactPhoneNumber"
               value={formData.emergencyContactPhoneNumber}
               onChange={handleChange}
+              className={classes.input_area}
             />
           </div>
         </div>
       </div>
+      {/* Healthy Details Input Forms */}
       <div className={classes.personal_details}>
         <h2 className={classes.form_section_heading}>Healthy Details</h2>
         <div className={classes.personal_details_inputs}>
-          <label className={classes.input_label}>
-            Allergies:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Allergies:</label>
             <input
               type="text"
               name="allergies"
               value={formData.allergies}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label className={classes.input_label}>
-            Medical Conditions:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Medical Conditions:</label>
             <input
               type="text"
               name="medicalConditions"
               value={formData.medicalConditions}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label className={classes.input_label}>
-            Family Medical History:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Family Medical History:
+            </label>
             <input
               type="text"
               name="familyMedicalHistory"
               value={formData.familyMedicalHistory}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label className={classes.input_label}>
-            Surgical History:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Surgical History:</label>
             <input
               type="text"
               name="surgicalHistory"
               value={formData.surgicalHistory}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label className={classes.input_label}>
-            Medications:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Medications:</label>
             <input
               type="text"
               name="medications"
               value={formData.medications}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label className={classes.input_label}>
-            Immunizations:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Immunizations:</label>
             <input
               type="text"
               name="immunizations"
               value={formData.immunizations}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
+          </div>
         </div>
       </div>
+      {/* Policy Information Input Forms */}
       <div className={classes.personal_details}>
         <h2 className={classes.form_section_heading}>Policy Information</h2>
         <div className={classes.personal_details_inputs}>
-          <label>
-            Insurance Provider:
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Insurance Provider:</label>
             <input
               type="text"
               name="insuranceProvider"
               value={formData.insuranceProvider}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Policy Number:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Policy Number:</label>
             <input
               type="text"
               name="policyNumber"
               value={formData.policyNumber}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Group Number:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Group Number:</label>
             <input
               type="text"
               name="groupNumber"
               value={formData.groupNumber}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-
-          <label>
-            Primary Care Physician:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>
+              Primary Care Physician:
+            </label>
             <input
               type="text"
               name="primaryCarePhysician"
               value={formData.primaryCarePhysician}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
-          <label>
-            Additional Notes:
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Additional Notes:</label>
             <textarea
               name="additionalNotes"
               value={formData.additionalNotes}
               onChange={handleChange}
+              className={classes.input_area}
             />
-          </label>
+          </div>
         </div>
       </div>
       <button type="submit">Submit</button>
