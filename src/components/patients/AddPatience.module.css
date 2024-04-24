@@ -47,6 +47,17 @@
   color: #008080;
 }
 
+.required_sign {
+  color: red;
+  align-self: self-start;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.optional_message {
+  color: #c4c2c2;
+}
+
 .input_area {
   width: 20rem;
   padding: 0.5rem;

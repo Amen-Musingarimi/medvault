@@ -50,7 +50,9 @@ const AddPatientForm = () => {
         <h2 className={classes.form_section_heading}>Personal Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>First Name:</label>
+            <label className={classes.input_label}>
+              First Name: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
               name="firstName"
@@ -58,45 +60,58 @@ const AddPatientForm = () => {
               value={formData.firstName}
               onChange={handleChange}
               className={classes.input_area}
+              required
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Last Name:</label>
+            <label className={classes.input_label}>
+              Last Name: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
               name="lastName"
               placeholder="Doe"
               value={formData.lastName}
               onChange={handleChange}
+              required
               className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>ID Number:</label>
+            <label className={classes.input_label}>
+              ID Number: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
               name="idNumber"
               placeholder="22-778899A00"
               value={formData.idNumber}
               onChange={handleChange}
+              required
               className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Date of Birth:</label>
+            <label className={classes.input_label}>
+              Date of Birth: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="date"
               name="dateOfBirth"
+              required
               value={formData.dateOfBirth}
               onChange={handleChange}
               className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Gender:</label>
+            <label className={classes.input_label}>
+              Gender: <span className={classes.required_sign}>*</span>
+            </label>
             <select
               name="gender"
               value={formData.gender}
+              required
               onChange={handleChange}
               className={classes.input_area}
             >
@@ -107,18 +122,24 @@ const AddPatientForm = () => {
             </select>
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Phone Number:</label>
+            <label className={classes.input_label}>
+              Phone Number: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="tel"
               name="phoneNumber"
               placeholder="0778000111"
+              required
               value={formData.phoneNumber}
               onChange={handleChange}
               className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Email Address:</label>
+            <label className={classes.input_label}>
+              Email Address:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="email"
               name="emailAddress"
@@ -129,11 +150,14 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Address:</label>
+            <label className={classes.input_label}>
+              Address: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="address"
               name="address"
               placeholder="1 Med Street, Mabelreign, Harare"
+              required
               value={formData.address}
               onChange={handleChange}
               className={classes.input_area}
@@ -146,32 +170,41 @@ const AddPatientForm = () => {
         <h2 className={classes.form_section_heading}>Next of Keen Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>First Name:</label>
+            <label className={classes.input_label}>
+              First Name: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
               name="keenFirstName"
               placeholder="Jammy"
+              required
               value={formData.keenFirstName}
               onChange={handleChange}
               className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Last Name:</label>
+            <label className={classes.input_label}>
+              Last Name: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
               name="keenLastName"
               placeholder="Jodol"
+              required
               value={formData.keenLastName}
               onChange={handleChange}
               className={classes.input_area}
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Relationship:</label>
+            <label className={classes.input_label}>
+              Relationship: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
               name="keenRelationship"
+              required
               value={formData.keenRelationship}
               placeholder="Husband"
               onChange={handleChange}
@@ -179,11 +212,14 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Phone Number:</label>
+            <label className={classes.input_label}>
+              Phone Number: <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="tel"
               name="keenPhoneNumber"
               placeholder="0778000111"
+              required
               value={formData.keenPhoneNumber}
               onChange={handleChange}
               className={classes.input_area}
@@ -196,7 +232,10 @@ const AddPatientForm = () => {
         <h2 className={classes.form_section_heading}>Healthy Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Medical Conditions:</label>
+            <label className={classes.input_label}>
+              Medical Conditions:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="medicalConditions"
@@ -207,7 +246,10 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Allergies:</label>
+            <label className={classes.input_label}>
+              Allergies:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="allergies"
@@ -218,7 +260,10 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Disabilities:</label>
+            <label className={classes.input_label}>
+              Disabilities:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="disability"
@@ -230,7 +275,8 @@ const AddPatientForm = () => {
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>
-              Family Medical History:
+              Family Medical History:{' '}
+              <span className={classes.optional_message}>[optional]</span>
             </label>
             <input
               type="text"
@@ -243,7 +289,8 @@ const AddPatientForm = () => {
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>
-              Past Surgeries/Medical Procedures:
+              Past Surgeries/Medical Procedures:{' '}
+              <span className={classes.optional_message}>[optional]</span>
             </label>
             <input
               type="text"
@@ -255,11 +302,15 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Immunization Status:</label>
+            <label className={classes.input_label}>
+              Immunization Status:{' '}
+              <span className={classes.required_sign}>*</span>
+            </label>
             <input
               type="text"
               name="immunizationStatus"
               placeholder="All except Polio"
+              required
               value={formData.immunizationStatus}
               onChange={handleChange}
               className={classes.input_area}
@@ -274,7 +325,10 @@ const AddPatientForm = () => {
         </h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Medical Aid Society:</label>
+            <label className={classes.input_label}>
+              Medical Aid Society:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="insuranceProvider"
@@ -285,7 +339,10 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Member's Name:</label>
+            <label className={classes.input_label}>
+              Member's Name:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="policyNumber"
@@ -296,7 +353,10 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Policy Number:</label>
+            <label className={classes.input_label}>
+              Policy Number:{' '}
+              <span className={classes.optional_message}>[optional]</span>
+            </label>
             <input
               type="text"
               name="policyNumber"
@@ -308,7 +368,8 @@ const AddPatientForm = () => {
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>
-              Member's Contact Number:
+              Member's Contact Number:{' '}
+              <span className={classes.optional_message}>[optional]</span>
             </label>
             <input
               type="text"
