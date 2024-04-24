@@ -150,6 +150,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="keenFirstName"
+              placeholder="Jammy"
               value={formData.keenFirstName}
               onChange={handleChange}
               className={classes.input_area}
@@ -160,6 +161,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="keenLastName"
+              placeholder="Jodol"
               value={formData.keenLastName}
               onChange={handleChange}
               className={classes.input_area}
@@ -171,6 +173,7 @@ const AddPatientForm = () => {
               type="text"
               name="keenRelationship"
               value={formData.keenRelationship}
+              placeholder="Husband"
               onChange={handleChange}
               className={classes.input_area}
             />
@@ -180,6 +183,7 @@ const AddPatientForm = () => {
             <input
               type="tel"
               name="keenPhoneNumber"
+              placeholder="0778000111"
               value={formData.keenPhoneNumber}
               onChange={handleChange}
               className={classes.input_area}
@@ -196,6 +200,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="medicalConditions"
+              placeholder="Diabetes, Asthma"
               value={formData.medicalConditions}
               onChange={handleChange}
               className={classes.input_area}
@@ -206,6 +211,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="allergies"
+              placeholder="Penicillin, Pollen"
               value={formData.allergies}
               onChange={handleChange}
               className={classes.input_area}
@@ -216,6 +222,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="disability"
+              placeholder="Blind, Deaf"
               value={formData.disability}
               onChange={handleChange}
               className={classes.input_area}
@@ -228,6 +235,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="familyMedicalHistory"
+              placeholder="Diabetes"
               value={formData.familyMedicalHistory}
               onChange={handleChange}
               className={classes.input_area}
@@ -240,6 +248,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="surgicalHistory"
+              placeholder="C-Section"
               value={formData.surgicalHistory}
               onChange={handleChange}
               className={classes.input_area}
@@ -250,6 +259,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="immunizationStatus"
+              placeholder="All except Polio"
               value={formData.immunizationStatus}
               onChange={handleChange}
               className={classes.input_area}
@@ -268,6 +278,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="insuranceProvider"
+              placeholder="CIMAS"
               value={formData.medicalAidSociety}
               onChange={handleChange}
               className={classes.input_area}
@@ -278,6 +289,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="policyNumber"
+              placeholder="John Doe"
               value={formData.policyHolderName}
               onChange={handleChange}
               className={classes.input_area}
@@ -288,6 +300,7 @@ const AddPatientForm = () => {
             <input
               type="text"
               name="policyNumber"
+              placeholder="01020304"
               value={formData.policyNumber}
               onChange={handleChange}
               className={classes.input_area}
@@ -299,8 +312,9 @@ const AddPatientForm = () => {
             </label>
             <input
               type="text"
-              name="groupNumber"
-              value={formData.groupNumber}
+              name="memberContactNumber"
+              placeholder="0778000111"
+              value={formData.memberContactNumber}
               onChange={handleChange}
               className={classes.input_area}
             />
