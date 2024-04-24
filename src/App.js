@@ -12,10 +12,9 @@ const App = () => {
       <SideBar />
       <div className="scrollable_main">
         <Header />
-        <AddPatientForm />
         <Routes>
           <Route exact path="/auth" element={<Authentication />} />
-          {/* <Route exact path="/add-patient" index element={<AddPatientForm />} /> */}
+          <Route exact path="/add-patient" index element={<AddPatientForm />} />
         </Routes>
       </div>
     </div>

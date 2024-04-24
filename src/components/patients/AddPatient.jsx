@@ -10,30 +10,28 @@ const AddPatientForm = () => {
     gender: '',
     phoneNumber: '',
     emailAddress: '',
-    address: '',
+    residentialAddress: '',
+    keenFirstName: '',
+    keenLastName: '',
+    keenRelationship: '',
+    keenPhoneNumber: '',
     medicalConditions: '',
     allergies: '',
     disability: '',
     familyMedicalHistory: '',
     surgicalHistory: '',
-    medications: '',
     immunizationStatus: '',
     medicalAidSociety: '',
     policyHolderName: '',
     policyNumber: '',
     memberContactNumber: '',
-    keenFirstName: '',
-    keenLastName: '',
-    keenRelationship: '',
-    keenPhoneNumber: '',
-    additionalNotes: '',
   });
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: value,
     }));
   };
 
@@ -151,14 +149,15 @@ const AddPatientForm = () => {
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>
-              Address: <span className={classes.required_sign}>*</span>
+              Residential Address:{' '}
+              <span className={classes.required_sign}>*</span>
             </label>
             <input
               type="address"
-              name="address"
+              name="residentialAddress"
               placeholder="1 Med Street, Mabelreign, Harare"
               required
-              value={formData.address}
+              value={formData.residentialAddress}
               onChange={handleChange}
               className={classes.input_area}
             />

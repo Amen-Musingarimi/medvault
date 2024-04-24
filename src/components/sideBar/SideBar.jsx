@@ -16,48 +16,51 @@ const SideBar = () => {
       <div className={classes.linksContainer}>
         <div className={classes.homeLinkCont}>
           <p className={classes.linkHeading}>HOME</p>
-          <Link className={classes.homeLink}>
+          <Link to="/overview" className={classes.homeLink}>
             <AiFillHome />
             <p className={classes.homeText}>Overview</p>
           </Link>
         </div>
         <div className={classes.homeLinkCont}>
           <p className={classes.linkHeading}>PATIENTS</p>
-          <Link className={classes.homeLink}>
+          <Link to="/manage-patients" className={classes.homeLink}>
             <SlCalender />
             <p className={classes.homeText}>Manage Patience</p>
           </Link>
-          <Link to="/add-patient" exact="true" className={classes.homeLink}>
+          <Link to="/add-patient" className={classes.homeLink}>
             <AiFillSchedule />
             <p className={classes.homeText}>Add Patient</p>
           </Link>
         </div>
         <div className={classes.homeLinkCont}>
           <p className={classes.linkHeading}>APPOINTMENTS</p>
-          <Link className={classes.homeLink}>
+          <Link to="/set-availability" className={classes.homeLink}>
             <FaUsersCog />
-            <p className={classes.homeText}>Set Availability</p>
+            <p className={classes.homeText}>Office Hours</p>
           </Link>
-          <Link className={classes.homeLink}>
+          <Link to="/appointments" className={classes.homeLink}>
             <FaUsers />
-            <p className={classes.homeText}>Upcoming Appointments</p>
+            <p className={classes.homeText}>Appointments</p>
           </Link>
-          <Link className={classes.homeLink}>
+          <Link to="/schedule-appointment" className={classes.homeLink}>
             <FaUsersCog />
-            <p className={classes.homeText}>Schedule Appointment</p>
+            <p className={classes.homeText}>Set Appointment</p>
           </Link>
         </div>
         <div className={classes.homeLinkCont}>
           <p className={classes.linkHeading}>YOUR PROFILE</p>
-          <Link className={classes.homeLink}>
+          <Link to="/profile/:id" className={classes.homeLink}>
             <FaUserCog />
             <p className={classes.homeText}>Details</p>
           </Link>
-          <Link className={classes.homeLink}>
+          <Link to="/settings" className={classes.homeLink}>
             <FcStatistics />
             <p className={classes.homeText}>Settings</p>
           </Link>
-          <Link className={`${classes.homeLink} ${classes.danger}`}>
+          <Link
+            to="/logout"
+            className={`${classes.homeLink} ${classes.danger}`}
+          >
             <BiSolidLogOut />
             <p className={classes.homeText}>Logout</p>
           </Link>
