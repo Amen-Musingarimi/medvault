@@ -330,7 +330,7 @@ const AddPatientForm = () => {
             </label>
             <input
               type="text"
-              name="insuranceProvider"
+              name="medicalAidSociety"
               placeholder="CIMAS"
               value={formData.medicalAidSociety}
               onChange={handleChange}
@@ -344,7 +344,7 @@ const AddPatientForm = () => {
             </label>
             <input
               type="text"
-              name="policyNumber"
+              name="policyHolderName"
               placeholder="John Doe"
               value={formData.policyHolderName}
               onChange={handleChange}
