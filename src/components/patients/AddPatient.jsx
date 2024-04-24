@@ -3,7 +3,9 @@ import classes from './AddPatience.module.css';
 
 const AddPatientForm = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    firstName: '',
+    lastName: '',
+    idNumber: '',
     dateOfBirth: '',
     gender: '',
     phoneNumber: '',
@@ -45,11 +47,34 @@ const AddPatientForm = () => {
         <h2>Personal Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Full Name:</label>
+            <label className={classes.input_label}>First Name:</label>
             <input
               type="text"
-              name="fullName"
-              value={formData.fullName}
+              name="firstName"
+              placeholder="John"
+              value={formData.firstName}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Last Name:</label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Doe"
+              value={formData.lastName}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>ID Number:</label>
+            <input
+              type="text"
+              name="idNumber"
+              placeholder="22-778899A00"
+              value={formData.idNumber}
               onChange={handleChange}
               className={classes.input_area}
             />
@@ -83,6 +108,7 @@ const AddPatientForm = () => {
             <input
               type="tel"
               name="phoneNumber"
+              placeholder="0778000111"
               value={formData.phoneNumber}
               onChange={handleChange}
               className={classes.input_area}
@@ -93,6 +119,7 @@ const AddPatientForm = () => {
             <input
               type="email"
               name="emailAddress"
+              placeholder="johndoe@email.com"
               value={formData.emailAddress}
               onChange={handleChange}
               className={classes.input_area}
@@ -103,6 +130,7 @@ const AddPatientForm = () => {
             <input
               type="address"
               name="address"
+              placeholder="1 Med Street, Mabelreign, Harare"
               value={formData.address}
               onChange={handleChange}
               className={classes.input_area}
