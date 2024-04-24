@@ -58,3 +58,16 @@
   color: inherit;
   margin-right: 0.5rem;
 }
+
+.submit_btn {
+  background-color: #008080;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.submit_btn:hover {
+  background-color: #005050;
+}

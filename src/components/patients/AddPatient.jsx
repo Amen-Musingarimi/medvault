@@ -11,16 +11,17 @@ const AddPatientForm = () => {
     phoneNumber: '',
     emailAddress: '',
     address: '',
-    allergies: '',
     medicalConditions: '',
+    allergies: '',
+    disability: '',
     familyMedicalHistory: '',
     surgicalHistory: '',
     medications: '',
-    immunizations: '',
-    insuranceProvider: '',
+    immunizationStatus: '',
+    medicalAidSociety: '',
+    policyHolderName: '',
     policyNumber: '',
-    groupNumber: '',
-    primaryCarePhysician: '',
+    memberContactNumber: '',
     keenFirstName: '',
     keenLastName: '',
     keenRelationship: '',
@@ -191,6 +192,16 @@ const AddPatientForm = () => {
         <h2 className={classes.form_section_heading}>Healthy Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
+            <label className={classes.input_label}>Medical Conditions:</label>
+            <input
+              type="text"
+              name="medicalConditions"
+              value={formData.medicalConditions}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
             <label className={classes.input_label}>Allergies:</label>
             <input
               type="text"
@@ -201,11 +212,11 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Medical Conditions:</label>
+            <label className={classes.input_label}>Disabilities:</label>
             <input
               type="text"
-              name="medicalConditions"
-              value={formData.medicalConditions}
+              name="disability"
+              value={formData.disability}
               onChange={handleChange}
               className={classes.input_area}
             />
@@ -223,7 +234,9 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Surgical History:</label>
+            <label className={classes.input_label}>
+              Past Surgeries/Medical Procedures:
+            </label>
             <input
               type="text"
               name="surgicalHistory"
@@ -233,21 +246,11 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Medications:</label>
+            <label className={classes.input_label}>Immunization Status:</label>
             <input
               type="text"
-              name="medications"
-              value={formData.medications}
-              onChange={handleChange}
-              className={classes.input_area}
-            />
-          </div>
-          <div className={classes.form_control}>
-            <label className={classes.input_label}>Immunizations:</label>
-            <input
-              type="text"
-              name="immunizations"
-              value={formData.immunizations}
+              name="immunizationStatus"
+              value={formData.immunizationStatus}
               onChange={handleChange}
               className={classes.input_area}
             />
@@ -256,14 +259,26 @@ const AddPatientForm = () => {
       </div>
       {/* Policy Information Input Forms */}
       <div className={classes.personal_details}>
-        <h2 className={classes.form_section_heading}>Policy Information</h2>
+        <h2 className={classes.form_section_heading}>
+          Medical Aid Information
+        </h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Insurance Provider:</label>
+            <label className={classes.input_label}>Medical Aid Society:</label>
             <input
               type="text"
               name="insuranceProvider"
-              value={formData.insuranceProvider}
+              value={formData.medicalAidSociety}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Member's Name:</label>
+            <input
+              type="text"
+              name="policyNumber"
+              value={formData.policyHolderName}
               onChange={handleChange}
               className={classes.input_area}
             />
@@ -279,7 +294,9 @@ const AddPatientForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Group Number:</label>
+            <label className={classes.input_label}>
+              Member's Contact Number:
+            </label>
             <input
               type="text"
               name="groupNumber"
@@ -288,30 +305,11 @@ const AddPatientForm = () => {
               className={classes.input_area}
             />
           </div>
-          <div className={classes.form_control}>
-            <label className={classes.input_label}>
-              Primary Care Physician:
-            </label>
-            <input
-              type="text"
-              name="primaryCarePhysician"
-              value={formData.primaryCarePhysician}
-              onChange={handleChange}
-              className={classes.input_area}
-            />
-          </div>
-          <div className={classes.form_control}>
-            <label className={classes.input_label}>Additional Notes:</label>
-            <textarea
-              name="additionalNotes"
-              value={formData.additionalNotes}
-              onChange={handleChange}
-              className={classes.input_area}
-            />
-          </div>
         </div>
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" className={classes.submit_btn}>
+        Submit
+      </button>
     </form>
   );
 };
