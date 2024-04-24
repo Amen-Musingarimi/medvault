@@ -139,7 +139,7 @@ const AddPatientForm = () => {
         </div>
       </div>
       <div className={classes.personal_details}>
-        <h2>Next of Keen Details</h2>
+        <h2 className={classes.form_section_heading}>Next of Keen Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
             <label className={classes.input_label}>Next of keen:</label>
@@ -171,7 +171,7 @@ const AddPatientForm = () => {
         </div>
       </div>
       <div className={classes.personal_details}>
-        <h2>Healthy Details</h2>
+        <h2 className={classes.form_section_heading}>Healthy Details</h2>
         <div className={classes.personal_details_inputs}>
           <label className={classes.input_label}>
             Allergies:
@@ -235,7 +235,7 @@ const AddPatientForm = () => {
         </div>
       </div>
       <div className={classes.personal_details}>
-        <h2>Policy Information</h2>
+        <h2 className={classes.form_section_heading}>Policy Information</h2>
         <div className={classes.personal_details_inputs}>
           <label>
             Insurance Provider:
