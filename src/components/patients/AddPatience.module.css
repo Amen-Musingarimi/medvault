@@ -10,6 +10,12 @@
   gap: 1rem;
 }
 
+.form_section_heading {
+  font-size: 1.3rem;
+  color: #025252;
+  align-self: center;
+}
+
 .personal_details {
   display: flex;
   flex-direction: column;

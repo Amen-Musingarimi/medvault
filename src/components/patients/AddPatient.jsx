@@ -44,7 +44,7 @@ const AddPatientForm = () => {
   return (
     <form onSubmit={handleSubmit} className={classes.add_patient_form}>
       <div className={classes.personal_details}>
-        <h2>Personal Details</h2>
+        <h2 className={classes.form_section_heading}>Personal Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
             <label className={classes.input_label}>First Name:</label>
