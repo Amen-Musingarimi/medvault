@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { createPatient } from '../../redux/patientsSlice';
 import classes from './AddPatience.module.css';
 
 const AddPatientForm = () => {
+  const dispatch = useDispatch();
+
   const initialFormData = {
     firstName: '',
     lastName: '',
@@ -41,6 +45,7 @@ const AddPatientForm = () => {
     e.preventDefault();
     // Handle form submission (e.g., send data to backend)
     console.log(formData);
+    dispatch(createPatient(formData));
     setFormData(initialFormData);
   };
 
