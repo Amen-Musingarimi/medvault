@@ -25,7 +25,6 @@ const AddPatientForm = () => {
     keenLastName: '',
     keenRelationship: '',
     keenPhoneNumber: '',
-    keenAddress: '',
     additionalNotes: '',
   });
 
@@ -146,11 +145,21 @@ const AddPatientForm = () => {
         <h2 className={classes.form_section_heading}>Next of Keen Details</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Next of keen:</label>
+            <label className={classes.input_label}>First Name:</label>
             <input
               type="text"
-              name="emergencyContactName"
-              value={formData.emergencyContactName}
+              name="keenFirstName"
+              value={formData.keenFirstName}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
+            <label className={classes.input_label}>Last Name:</label>
+            <input
+              type="text"
+              name="keenLastName"
+              value={formData.keenLastName}
               onChange={handleChange}
               className={classes.input_area}
             />
@@ -159,8 +168,8 @@ const AddPatientForm = () => {
             <label className={classes.input_label}>Relationship:</label>
             <input
               type="text"
-              name="emergencyContactRelationship"
-              value={formData.emergencyContactRelationship}
+              name="keenRelationship"
+              value={formData.keenRelationship}
               onChange={handleChange}
               className={classes.input_area}
             />
@@ -169,8 +178,8 @@ const AddPatientForm = () => {
             <label className={classes.input_label}>Phone Number:</label>
             <input
               type="tel"
-              name="emergencyContactPhoneNumber"
-              value={formData.emergencyContactPhoneNumber}
+              name="keenPhoneNumber"
+              value={formData.keenPhoneNumber}
               onChange={handleChange}
               className={classes.input_area}
             />
