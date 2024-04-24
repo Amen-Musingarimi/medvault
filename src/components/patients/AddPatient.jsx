@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classes from './AddPatience.module.css';
 
 const AddPatientForm = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     firstName: '',
     lastName: '',
     idNumber: '',
@@ -25,7 +25,9 @@ const AddPatientForm = () => {
     policyHolderName: '',
     policyNumber: '',
     memberContactNumber: '',
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +41,7 @@ const AddPatientForm = () => {
     e.preventDefault();
     // Handle form submission (e.g., send data to backend)
     console.log(formData);
+    setFormData(initialFormData);
   };
 
   return (
@@ -288,7 +291,7 @@ const AddPatientForm = () => {
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>
-              Past Surgeries/Medical Procedures:{' '}
+              Past Medical Procedures:{' '}
               <span className={classes.optional_message}>[optional]</span>
             </label>
             <input
