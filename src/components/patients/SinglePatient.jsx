@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classes from './SinglePatient.module.css';
 
 const SinglePatient = ({ patient }) => {
   const calculateAge = (dateOfBirth) => {
@@ -10,13 +11,29 @@ const SinglePatient = ({ patient }) => {
   };
 
   return (
-    <Link to="/patients/patient/:patientId">
-      <strong>Name:</strong> {patient.firstName} {patient.lastName} <br />
-      <strong>ID Number:</strong> {patient.idNumber} <br />
-      <strong>Phone Number:</strong> {patient.phoneNumber} <br />
-      <strong>Gender:</strong> {patient.gender} <br />
-      <strong>Age:</strong> {calculateAge(patient.dateOfBirth)} <br />
-      <hr />
+    <Link to="/patients/patient/:patientId" className={classes.patient_link}>
+      <div className={classes.details_container}>
+        <h4 className={classes.heading}>NAME: </h4>
+        <h3 className={classes.value}>
+          {patient.firstName.toUpperCase()} {patient.lastName.toUpperCase()}{' '}
+        </h3>
+      </div>
+      <div className={classes.details_container}>
+        <h4 className={classes.heading}>ID NUMBER: </h4>
+        <h3 className={classes.value}>{patient.idNumber.toUpperCase()}</h3>
+      </div>
+      <div className={classes.details_container}>
+        <h4 className={classes.heading}>AGE: </h4>
+        <h3 className={classes.value}>{calculateAge(patient.dateOfBirth)}</h3>
+      </div>
+      <div className={classes.details_container}>
+        <h4 className={classes.heading}>GENDER: </h4>
+        <h3 className={classes.value}>{patient.gender.toUpperCase()}</h3>
+      </div>
+      <div className={classes.details_container}>
+        <h4 className={classes.heading}>CELL: </h4>
+        <h3 className={classes.value}>{patient.phoneNumber}</h3>
+      </div>
     </Link>
   );
 };

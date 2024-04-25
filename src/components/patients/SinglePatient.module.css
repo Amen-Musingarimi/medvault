@@ -1,0 +1,27 @@
+.patient_link {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem;
+  text-decoration: none;
+  color: #025252;
+  width: 15rem;
+}
+
+.details_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.heading {
+  font-size: 0.75rem;
+  color: #008080;
+}
+
+.value {
+  font-size: 0.85rem;
+  color: #015858;
+}
