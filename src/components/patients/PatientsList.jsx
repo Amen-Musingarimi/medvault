@@ -12,6 +12,13 @@ const PatientsList = () => {
     dispatch(fetchPatients());
   }, [dispatch]);
 
+  const calculateAge = (dateOfBirth) => {
+    const dob = new Date(dateOfBirth);
+    const ageDiffMs = Date.now() - dob.getTime();
+    const ageDate = new Date(ageDiffMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  };
+
   return (
     <div>
       <h2>Patients List</h2>
@@ -29,13 +36,6 @@ const PatientsList = () => {
       </ul>
     </div>
   );
-};
-
-const calculateAge = (dateOfBirth) => {
-  const dob = new Date(dateOfBirth);
-  const ageDiffMs = Date.now() - dob.getTime();
-  const ageDate = new Date(ageDiffMs); // miliseconds from epoch
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
 };
 
 export default PatientsList;
