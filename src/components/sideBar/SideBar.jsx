@@ -23,7 +23,7 @@ const SideBar = () => {
         </div>
         <div className={classes.homeLinkCont}>
           <p className={classes.linkHeading}>PATIENTS</p>
-          <Link to="/manage-patients" className={classes.homeLink}>
+          <Link to="/patients" className={classes.homeLink}>
             <SlCalender />
             <p className={classes.homeText}>Manage Patience</p>
           </Link>

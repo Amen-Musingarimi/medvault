@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPatient } from '../../redux/patientsSlice';
-import classes from './AddPatience.module.css';
+import classes from './AddPatient.module.css';
 
 const AddPatientForm = () => {
   const dispatch = useDispatch();
@@ -64,6 +64,7 @@ const AddPatientForm = () => {
               name="firstName"
               placeholder="John"
               value={formData.firstName}
+              minLength={4}
               onChange={handleChange}
               className={classes.input_area}
               required
@@ -78,6 +79,7 @@ const AddPatientForm = () => {
               name="lastName"
               placeholder="Doe"
               value={formData.lastName}
+              minLength={4}
               onChange={handleChange}
               required
               className={classes.input_area}
@@ -92,6 +94,8 @@ const AddPatientForm = () => {
               name="idNumber"
               placeholder="22-778899A00"
               value={formData.idNumber}
+              pattern=".{12}"
+              title="National ID must be exactly 10 characters long."
               onChange={handleChange}
               required
               className={classes.input_area}
@@ -135,6 +139,7 @@ const AddPatientForm = () => {
               type="tel"
               name="phoneNumber"
               placeholder="0778000111"
+              minLength={10}
               required
               value={formData.phoneNumber}
               onChange={handleChange}
@@ -184,6 +189,7 @@ const AddPatientForm = () => {
               type="text"
               name="keenFirstName"
               placeholder="Jammy"
+              minLength={3}
               required
               value={formData.keenFirstName}
               onChange={handleChange}
@@ -198,6 +204,7 @@ const AddPatientForm = () => {
               type="text"
               name="keenLastName"
               placeholder="Jodol"
+              minLength={3}
               required
               value={formData.keenLastName}
               onChange={handleChange}
@@ -212,6 +219,7 @@ const AddPatientForm = () => {
               type="text"
               name="keenRelationship"
               required
+              minLength={4}
               value={formData.keenRelationship}
               placeholder="Husband"
               onChange={handleChange}
@@ -226,6 +234,7 @@ const AddPatientForm = () => {
               type="tel"
               name="keenPhoneNumber"
               placeholder="0778000111"
+              minLength={10}
               required
               value={formData.keenPhoneNumber}
               onChange={handleChange}
@@ -247,6 +256,7 @@ const AddPatientForm = () => {
               type="text"
               name="medicalConditions"
               placeholder="Diabetes, Asthma"
+              minLength={4}
               value={formData.medicalConditions}
               onChange={handleChange}
               className={classes.input_area}
@@ -261,6 +271,7 @@ const AddPatientForm = () => {
               type="text"
               name="allergies"
               placeholder="Penicillin, Pollen"
+              minLength={4}
               value={formData.allergies}
               onChange={handleChange}
               className={classes.input_area}
@@ -275,6 +286,7 @@ const AddPatientForm = () => {
               type="text"
               name="disability"
               placeholder="Blind, Deaf"
+              minLength={4}
               value={formData.disability}
               onChange={handleChange}
               className={classes.input_area}
@@ -289,6 +301,7 @@ const AddPatientForm = () => {
               type="text"
               name="familyMedicalHistory"
               placeholder="Diabetes"
+              minLength={4}
               value={formData.familyMedicalHistory}
               onChange={handleChange}
               className={classes.input_area}
@@ -303,6 +316,7 @@ const AddPatientForm = () => {
               type="text"
               name="surgicalHistory"
               placeholder="C-Section"
+              minLength={4}
               value={formData.surgicalHistory}
               onChange={handleChange}
               className={classes.input_area}
@@ -317,6 +331,7 @@ const AddPatientForm = () => {
               type="text"
               name="immunizationStatus"
               placeholder="All except Polio"
+              minLength={3}
               required
               value={formData.immunizationStatus}
               onChange={handleChange}
@@ -340,6 +355,7 @@ const AddPatientForm = () => {
               type="text"
               name="medicalAidSociety"
               placeholder="CIMAS"
+              minLength={4}
               value={formData.medicalAidSociety}
               onChange={handleChange}
               className={classes.input_area}
@@ -354,6 +370,7 @@ const AddPatientForm = () => {
               type="text"
               name="policyHolderName"
               placeholder="John Doe"
+              minLength={4}
               value={formData.policyHolderName}
               onChange={handleChange}
               className={classes.input_area}
@@ -368,6 +385,7 @@ const AddPatientForm = () => {
               type="text"
               name="policyNumber"
               placeholder="01020304"
+              minLength={4}
               value={formData.policyNumber}
               onChange={handleChange}
               className={classes.input_area}
@@ -382,6 +400,7 @@ const AddPatientForm = () => {
               type="text"
               name="memberContactNumber"
               placeholder="0778000111"
+              minLength={10}
               value={formData.memberContactNumber}
               onChange={handleChange}
               className={classes.input_area}
