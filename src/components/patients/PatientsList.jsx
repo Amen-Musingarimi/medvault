@@ -18,9 +18,8 @@ const PatientsList = () => {
       <ul>
         {patients.map((patient) => (
           <li key={patient.id}>
-            <strong>Name:</strong> {patient.patientFirstName}{' '}
-            {patient.patientLastName} <br />
-            <strong>ID Number:</strong> {patient.nationalId} <br />
+            <strong>Name:</strong> {patient.firstName} {patient.lastName} <br />
+            <strong>ID Number:</strong> {patient.idNumber} <br />
             <strong>Phone Number:</strong> {patient.phoneNumber} <br />
             <strong>Gender:</strong> {patient.gender} <br />
             <strong>Age:</strong> {calculateAge(patient.dateOfBirth)} <br />
