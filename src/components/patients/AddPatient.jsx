@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createPatient } from '../../redux/patientsSlice';
-import classes from './AddPatience.module.css';
+import classes from './AddPatient.module.css';
 
 const AddPatientForm = () => {
   const dispatch = useDispatch();
