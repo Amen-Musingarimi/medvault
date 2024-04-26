@@ -8,18 +8,16 @@ const PatientDetails = () => {
   const patient = useSelector((state) => state.pat.patient);
   const { id } = useParams();
 
-  console.log(id);
-
   useEffect(() => {
     dispatch(fetchSinglePatient(id));
   }, [dispatch, id]);
 
-  const calculateAge = (dateOfBirth) => {
-    const dob = new Date(dateOfBirth);
-    const ageDiffMs = Date.now() - dob.getTime();
-    const ageDate = new Date(ageDiffMs); // milliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  };
+  // const calculateAge = (dateOfBirth) => {
+  //   const dob = new Date(dateOfBirth);
+  //   const ageDiffMs = Date.now() - dob.getTime();
+  //   const ageDate = new Date(ageDiffMs); // milliseconds from epoch
+  //   return Math.abs(ageDate.getUTCFullYear() - 1970);
+  // };
 
   return (
     <div>
