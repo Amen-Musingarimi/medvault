@@ -47,7 +47,8 @@ export const searchPatient = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      throw new Error('Failed to search patient');
+      const response = error.response.data.message;
+      throw new Error(response);
     }
   }
 );
@@ -63,7 +64,7 @@ export const createPatient = createAsyncThunk(
       );
       return response.data.patient;
     } catch (error) {
-      return rejectWithValue(error.response.data.message);
+      return rejectWithValue(error.response.data);
     }
   }
 );
@@ -75,6 +76,7 @@ const patientsSlice = createSlice({
   reducers: {
     clearSearchResult: (state) => {
       state.searchResult = [];
+      state.error = null;
     },
   },
   extraReducers: (builder) => {
