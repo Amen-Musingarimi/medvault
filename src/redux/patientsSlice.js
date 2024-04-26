@@ -45,7 +45,7 @@ export const searchPatient = createAsyncThunk(
       const response = await axios.get(
         `http://localhost:8080/patients/query/${idNumber}`
       );
-      return response.data.patient;
+      return response.data;
     } catch (error) {
       throw new Error('Failed to search patient');
     }

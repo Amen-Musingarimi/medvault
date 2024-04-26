@@ -8,7 +8,7 @@ import classes from './PatientsList.module.css';
 const PatientsList = () => {
   const dispatch = useDispatch();
   const patients = useSelector((state) => state.pat.patients);
-  const searchResult = useSelector((state) => state.pat.searchResult);
+  const { patient } = useSelector((state) => state.pat.searchResult);
 
   useEffect(() => {
     dispatch(fetchPatients());
@@ -17,16 +17,16 @@ const PatientsList = () => {
     };
   }, [dispatch]);
 
-  const isEmpty = Object.keys(searchResult).length === 0;
+  // const isEmpty = Object.keys(patient).length === 0;
 
   return (
     <div className={classes.patients_list_container}>
       <h2 className={classes.section_heading}>Patients List</h2>
       <SearchPatientForm />
       <ul className={classes.patients_list}>
-        {!isEmpty ? (
-          <li key={searchResult._id} className={classes.list_item}>
-            <SinglePatient patient={searchResult} />
+        {patient ? (
+          <li key={patient._id} className={classes.list_item}>
+            <SinglePatient patient={patient} />
           </li>
         ) : (
           patients.map((patient) => (
