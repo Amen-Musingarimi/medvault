@@ -4,7 +4,7 @@ import doctorAvatar from '../../assets/doctor-avatar.webp';
 import classes from './Header.module.css';
 
 const Header = () => {
-  const doctorName = 'Amen Musingarimi';
+  const doctorName = 'Vongai Pamela';
   const doctorSpeciality = 'Pysician';
   const remainingAvailabilityHours = 4;
   return (
