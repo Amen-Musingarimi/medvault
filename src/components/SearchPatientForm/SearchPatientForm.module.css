@@ -19,3 +19,11 @@
 .search_btn:hover {
   background-color: #005050;
 }
+
+.error_message_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  padding: 1rem;
+}

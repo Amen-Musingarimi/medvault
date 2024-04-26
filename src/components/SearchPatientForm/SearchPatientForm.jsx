@@ -6,25 +6,28 @@ import classes from './SearchPatientForm.module.css';
 const SearchPatientForm = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
-  const { message } = useSelector((state) => state.pat.searchResult);
+  const [validSearchItemMessage, setValidSearchItemMessage] = useState('');
   const error = useSelector((state) => state.pat.error);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
     dispatch(clearSearchResult());
+    setValidSearchItemMessage('');
   };
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    dispatch(searchPatient(searchTerm));
-    setSearchTerm('');
+    if (searchTerm.trim().length === 12) {
+      dispatch(searchPatient(searchTerm.toUpperCase()));
+      setSearchTerm('');
+    } else {
+      setValidSearchItemMessage('Please enter a valid ID Number.');
+    }
   };
 
   let uiMessage;
   if (error) {
     uiMessage = error;
-  } else {
-    uiMessage = message;
   }
 
   return (
@@ -41,8 +44,9 @@ const SearchPatientForm = () => {
           Search
         </button>
       </form>
-      <div className={classes.message_container}>
+      <div className={classes.error_message_container}>
         <p className={classes.ui_message}>{uiMessage}</p>
+        <p className={classes.ui_message}>{validSearchItemMessage}</p>
       </div>
     </div>
   );
