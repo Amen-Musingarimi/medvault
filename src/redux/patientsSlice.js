@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Define the initial state for patients
 const initialState = {
   patients: [],
+  patient: [],
   status: 'idle',
   error: null,
 };
 
-// Define the thunk to fetch patients from the server
+// Fetch patients from the server
 export const fetchPatients = createAsyncThunk(
   'patients/fetchPatients',
   async () => {
@@ -21,7 +21,22 @@ export const fetchPatients = createAsyncThunk(
   }
 );
 
-// Define the thunk to create a patient
+// Fetch patients from the server
+export const fetchSinglePatient = createAsyncThunk(
+  'patient/fetchSinglePatient',
+  async (patientId) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/patients/patient/${patientId}`
+      );
+      return response.data.patient;
+    } catch (error) {
+      throw new Error('Failed to fetch patient');
+    }
+  }
+);
+
+// Create a patient
 export const createPatient = createAsyncThunk(
   'patients/createPatient',
   async (patientData, { rejectWithValue }) => {
@@ -56,6 +71,23 @@ const patientsSlice = createSlice({
 
     // Handle the error state if fetching patients fails
     builder.addCase(fetchPatients.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
+    });
+
+    // Handle the pending state while fetching a single patient
+    builder.addCase(fetchSinglePatient.pending, (state) => {
+      state.status = 'loading';
+    });
+
+    // Handle the success state after fetching a single patient
+    builder.addCase(fetchSinglePatient.fulfilled, (state, action) => {
+      state.status = 'succeeded';
+      state.patient = action.payload;
+    });
+
+    // Handle the error state if fetching a single patient fails
+    builder.addCase(fetchSinglePatient.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     });
