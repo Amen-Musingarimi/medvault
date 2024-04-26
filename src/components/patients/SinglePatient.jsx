@@ -11,7 +11,7 @@ const SinglePatient = ({ patient }) => {
   };
 
   return (
-    <Link to="/patients/patient/:patientId" className={classes.patient_link}>
+    <Link to={`/patients/${patient._id}`} className={classes.patient_link}>
       <div className={classes.details_container}>
         <h4 className={classes.heading}>NAME: </h4>
         <h3 className={classes.value}>
