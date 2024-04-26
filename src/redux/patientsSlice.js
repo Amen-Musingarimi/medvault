@@ -4,7 +4,7 @@ import axios from 'axios';
 const initialState = {
   patients: [],
   patient: [],
-  searchResult: [],
+  searchResult: {},
   status: 'idle',
   error: null,
 };
@@ -72,7 +72,11 @@ export const createPatient = createAsyncThunk(
 const patientsSlice = createSlice({
   name: 'patients',
   initialState,
-  reducers: {},
+  reducers: {
+    clearSearchResult: (state) => {
+      state.searchResult = [];
+    },
+  },
   extraReducers: (builder) => {
     // Handle the pending state while fetching patients
     builder.addCase(fetchPatients.pending, (state) => {
@@ -143,5 +147,7 @@ const patientsSlice = createSlice({
     });
   },
 });
+
+export const { clearSearchResult } = patientsSlice.actions;
 
 export default patientsSlice.reducer;

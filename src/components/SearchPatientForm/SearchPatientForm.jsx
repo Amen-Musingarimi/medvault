@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { searchPatient } from '../../redux/patientsSlice';
 import classes from './SearchPatientForm.module.css';
 
 const SearchPatientForm = () => {
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
-  const patient = useSelector((state) => state.pat.searchResult);
-
-  console.log(patient);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -16,7 +13,6 @@ const SearchPatientForm = () => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    console.log('Search term:', searchTerm);
     dispatch(searchPatient(searchTerm));
     setSearchTerm('');
   };
