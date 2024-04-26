@@ -4,6 +4,7 @@ import axios from 'axios';
 const initialState = {
   patients: [],
   patient: [],
+  searchResult: [],
   status: 'idle',
   error: null,
 };
@@ -21,7 +22,7 @@ export const fetchPatients = createAsyncThunk(
   }
 );
 
-// Fetch patients from the server
+// Fetch patient from the server
 export const fetchSinglePatient = createAsyncThunk(
   'patient/fetchSinglePatient',
   async (patientId) => {
@@ -32,6 +33,21 @@ export const fetchSinglePatient = createAsyncThunk(
       return response.data.patient;
     } catch (error) {
       throw new Error('Failed to fetch patient');
+    }
+  }
+);
+
+// Search patient from the server
+export const searchPatient = createAsyncThunk(
+  'searchResult/searchPatient',
+  async (idNumber) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/patients/query/${idNumber}`
+      );
+      return response.data.patient;
+    } catch (error) {
+      throw new Error('Failed to search patient');
     }
   }
 );
@@ -88,6 +104,23 @@ const patientsSlice = createSlice({
 
     // Handle the error state if fetching a single patient fails
     builder.addCase(fetchSinglePatient.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
+    });
+
+    // Handle the pending state while searching for a patient
+    builder.addCase(searchPatient.pending, (state) => {
+      state.status = 'loading';
+    });
+
+    // Handle the success state after searching for a patient
+    builder.addCase(searchPatient.fulfilled, (state, action) => {
+      state.status = 'succeeded';
+      state.searchResult = action.payload;
+    });
+
+    // Handle the error state if searching for a patient fails
+    builder.addCase(searchPatient.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     });

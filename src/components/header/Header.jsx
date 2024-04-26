@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { searchPatient } from '../../redux/patientsSlice';
 import { IoNotifications } from 'react-icons/io5';
 import classes from './Header.module.css';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
+  const patient = useSelector((state) => state.pat.searchResult);
+
+  console.log(patient);
+  // useEffect(() => {
+  //   dispatch(fetchSinglePatient(idNumber));
+  // }, [dispatch, idNumber]);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -12,6 +21,7 @@ const Header = () => {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     console.log('Search term:', searchTerm);
+    dispatch(searchPatient(searchTerm));
     setSearchTerm('');
   };
 
