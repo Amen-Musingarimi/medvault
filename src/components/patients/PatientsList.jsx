@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPatients } from '../../redux/patientsSlice';
 import SinglePatient from './SinglePatient';
+import SearchPatientForm from '../SearchPatientForm/SearchPatientForm';
 import classes from './PatientsList.module.css';
 
 const PatientsList = () => {
@@ -15,6 +16,7 @@ const PatientsList = () => {
   return (
     <div className={classes.patients_list_container}>
       <h2 className={classes.section_heading}>Patients List</h2>
+      <SearchPatientForm />
       <ul className={classes.patients_list}>
         {patients.map((patient) => (
           <li key={patient._id} className={classes.list_item}>
