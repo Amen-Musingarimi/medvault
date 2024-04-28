@@ -1,14 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Define the initial state for patients
 const initialState = {
   patients: [],
+  patient: [],
+  searchResult: {},
   status: 'idle',
   error: null,
 };
 
-// Define the thunk to fetch patients from the server
+// Fetch patients from the server
 export const fetchPatients = createAsyncThunk(
   'patients/fetchPatients',
   async () => {
@@ -21,7 +22,38 @@ export const fetchPatients = createAsyncThunk(
   }
 );
 
-// Define the thunk to create a patient
+// Fetch patient from the server
+export const fetchSinglePatient = createAsyncThunk(
+  'patient/fetchSinglePatient',
+  async (patientId) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/patients/patient/${patientId}`
+      );
+      return response.data.patient;
+    } catch (error) {
+      throw new Error('Failed to fetch patient');
+    }
+  }
+);
+
+// Search patient from the server
+export const searchPatient = createAsyncThunk(
+  'searchResult/searchPatient',
+  async (idNumber) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/patients/query/${idNumber}`
+      );
+      return response.data;
+    } catch (error) {
+      const response = error.response.data.message;
+      throw new Error(response);
+    }
+  }
+);
+
+// Create a patient
 export const createPatient = createAsyncThunk(
   'patients/createPatient',
   async (patientData, { rejectWithValue }) => {
@@ -32,7 +64,7 @@ export const createPatient = createAsyncThunk(
       );
       return response.data.patient;
     } catch (error) {
-      return rejectWithValue(error.response.data.message);
+      return rejectWithValue(error.response.data);
     }
   }
 );
@@ -41,7 +73,12 @@ export const createPatient = createAsyncThunk(
 const patientsSlice = createSlice({
   name: 'patients',
   initialState,
-  reducers: {},
+  reducers: {
+    clearSearchResult: (state) => {
+      state.searchResult = [];
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     // Handle the pending state while fetching patients
     builder.addCase(fetchPatients.pending, (state) => {
@@ -56,6 +93,40 @@ const patientsSlice = createSlice({
 
     // Handle the error state if fetching patients fails
     builder.addCase(fetchPatients.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
+    });
+
+    // Handle the pending state while fetching a single patient
+    builder.addCase(fetchSinglePatient.pending, (state) => {
+      state.status = 'loading';
+    });
+
+    // Handle the success state after fetching a single patient
+    builder.addCase(fetchSinglePatient.fulfilled, (state, action) => {
+      state.status = 'succeeded';
+      state.patient = action.payload;
+    });
+
+    // Handle the error state if fetching a single patient fails
+    builder.addCase(fetchSinglePatient.rejected, (state, action) => {
+      state.status = 'failed';
+      state.error = action.error.message;
+    });
+
+    // Handle the pending state while searching for a patient
+    builder.addCase(searchPatient.pending, (state) => {
+      state.status = 'loading';
+    });
+
+    // Handle the success state after searching for a patient
+    builder.addCase(searchPatient.fulfilled, (state, action) => {
+      state.status = 'succeeded';
+      state.searchResult = action.payload;
+    });
+
+    // Handle the error state if searching for a patient fails
+    builder.addCase(searchPatient.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.error.message;
     });
@@ -78,5 +149,7 @@ const patientsSlice = createSlice({
     });
   },
 });
+
+export const { clearSearchResult } = patientsSlice.actions;
 
 export default patientsSlice.reducer;

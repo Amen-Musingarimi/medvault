@@ -1,37 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IoNotifications } from 'react-icons/io5';
+import doctorAvatar from '../../assets/doctor-avatar.webp';
 import classes from './Header.module.css';
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    console.log('Search term:', searchTerm);
-    setSearchTerm('');
-  };
-
+  const doctorName = 'Vongai Pamela';
+  const doctorSpeciality = 'Pysician';
+  const remainingAvailabilityHours = 4;
   return (
     <div className={classes.header}>
-      <form className={classes.search_form} onSubmit={handleSearchSubmit}>
-        <input
-          type="text"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          placeholder="Search Patient By ID e.g 22-778899A00"
-          className={classes.search_input}
-        />
-        <button type="submit" className={classes.search_btn}>
-          Search
+      <div className={classes.doctor_details}>
+        <div className={classes.name_image_cont}>
+          <img
+            src={doctorAvatar}
+            alt="doctor avatar"
+            className={classes.doctor_avatar}
+          />
+          <h2 className={classes.doctor_names}>Dr {doctorName}</h2>
+        </div>
+        <div className={classes.name_icon_cont}>
+          <h2 className={classes.doctor_names}>{doctorSpeciality}</h2>
+          <span className={classes.heading}>Speciality</span>
+        </div>
+        <div className={classes.name_icon_cont}>
+          <h2 className={classes.doctor_names}>{remainingAvailabilityHours}</h2>
+          <span className={classes.heading}>Remaining Hours</span>
+        </div>
+      </div>
+      <div className={classes.name_icon_cont}>
+        <button type="submit" className={classes.notification_btn}>
+          <IoNotifications />
         </button>
-      </form>
-      <button type="submit" className={classes.notification_btn}>
-        <IoNotifications />
-      </button>
+        <span className={classes.heading}>Notifications</span>
+      </div>
     </div>
   );
 };

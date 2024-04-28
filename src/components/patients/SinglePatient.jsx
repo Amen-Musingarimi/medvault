@@ -11,16 +11,16 @@ const SinglePatient = ({ patient }) => {
   };
 
   return (
-    <Link to="/patients/patient/:patientId" className={classes.patient_link}>
+    <Link to={`/patients/${patient._id}`} className={classes.patient_link}>
       <div className={classes.details_container}>
         <h4 className={classes.heading}>NAME: </h4>
         <h3 className={classes.value}>
-          {patient.firstName.toUpperCase()} {patient.lastName.toUpperCase()}{' '}
+          {patient.firstName} {patient.lastName}{' '}
         </h3>
       </div>
       <div className={classes.details_container}>
         <h4 className={classes.heading}>ID NUMBER: </h4>
-        <h3 className={classes.value}>{patient.idNumber.toUpperCase()}</h3>
+        <h3 className={classes.value}>{patient.idNumber}</h3>
       </div>
       <div className={classes.details_container}>
         <h4 className={classes.heading}>AGE: </h4>
@@ -28,7 +28,7 @@ const SinglePatient = ({ patient }) => {
       </div>
       <div className={classes.details_container}>
         <h4 className={classes.heading}>GENDER: </h4>
-        <h3 className={classes.value}>{patient.gender.toUpperCase()}</h3>
+        <h3 className={classes.value}>{patient.gender}</h3>
       </div>
       <div className={classes.details_container}>
         <h4 className={classes.heading}>CELL: </h4>

@@ -10,22 +10,42 @@
   height: 4rem;
 }
 
-.search_input {
-  width: 20rem;
-  padding: 0.5rem;
-  outline: none;
-  border: 1px solid #008080;
-  border-radius: 4px;
+.doctor_details,
+.name_image_cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.6rem;
+  color: #008080;
+}
+
+.doctor_details {
+  gap: 2rem;
+}
+
+.name_image_cont {
+  gap: 0.7rem;
   margin-right: 0.5rem;
 }
 
-.search_btn {
-  background-color: #008080;
-  padding: 0.5rem 1rem;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+.name_icon_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2px;
+}
+
+.heading {
+  font-size: 0.75rem;
+  color: #6f8002;
+}
+
+.doctor_avatar {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #d3d3d3;
+  border-radius: 50%;
 }
 
 .notification_btn {
@@ -38,8 +58,4 @@
   margin: 0;
   margin-top: 0.75rem;
   cursor: pointer;
-}
-
-.search_btn:hover {
-  background-color: #005050;
 }
