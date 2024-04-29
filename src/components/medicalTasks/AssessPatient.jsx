@@ -8,10 +8,17 @@ const PatientAssessmentForm = () => {
     temperature: 0,
     bloodPressure: '',
     weight: 0,
+    reasonForVisit: '',
     currentSymptoms: '',
+    pastMedicalHistory: '',
+    previousTestResults: '',
+    currentMedications: '',
+    lifestyleAndHabits: '',
+    familyMedicalHistory: '',
     diagnosis: '',
-    prescribe: '',
+    prescription: '',
     recommendedTests: '',
+    referral: '',
     checkupDate: '',
   };
 
@@ -87,7 +94,7 @@ const PatientAssessmentForm = () => {
           <div className={classes.form_control}>
             <label className={classes.input_label}>Reason for Visit:</label>
             <textarea
-              name="chiefComplaint"
+              name="reasonForVisit"
               placeholder="Enter reason for visit..."
               value={formData.reasonForVisit}
               onChange={handleChange}
@@ -127,6 +134,16 @@ const PatientAssessmentForm = () => {
             />
           </div>
           <div className={classes.form_control}>
+            <label className={classes.input_label}>Current Medications:</label>
+            <textarea
+              name="currentMedications"
+              placeholder="Enter current medications..."
+              value={formData.currentMedications}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
             <label className={classes.input_label}>Lifestyle and Habits:</label>
             <textarea
               name="lifestyleAndHabits"
@@ -144,16 +161,6 @@ const PatientAssessmentForm = () => {
               name="familyMedicalHistory"
               placeholder="Enter family medical history..."
               value={formData.familyMedicalHistory}
-              onChange={handleChange}
-              className={classes.input_area}
-            />
-          </div>
-          <div className={classes.form_control}>
-            <label className={classes.input_label}>Current Medications:</label>
-            <textarea
-              name="currentMedications"
-              placeholder="Enter current medications..."
-              value={formData.currentMedications}
               onChange={handleChange}
               className={classes.input_area}
             />
@@ -180,11 +187,11 @@ const PatientAssessmentForm = () => {
             />
           </div>
           <div className={classes.form_control}>
-            <label className={classes.input_label}>Prescribe:</label>
+            <label className={classes.input_label}>Prescription:</label>
             <textarea
-              name="prescribe"
+              name="prescription"
               placeholder="Enter prescribed medications..."
-              value={formData.prescribe}
+              value={formData.prescription}
               onChange={handleChange}
               className={classes.input_area}
             />
