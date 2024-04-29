@@ -1,4 +1,4 @@
-.add_patient_form {
+.patient_assessment_form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,6 @@
   justify-content: flex-start;
   width: 100%;
   gap: 2rem;
-  border-bottom: 1px solid #d3d3d3;
   padding: 2rem 0;
 }
 

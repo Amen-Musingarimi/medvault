@@ -38,7 +38,7 @@ const PatientAssessmentForm = () => {
   return (
     <form onSubmit={handleSubmit} className={classes.patient_assessment_form}>
       <div className={classes.personal_details}>
-        <h2 className={classes.form_section_heading}>Assessment</h2>
+        <h2 className={classes.form_section_heading}>Patient Assessment</h2>
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
             <label className={classes.input_label}>Patient:</label>
