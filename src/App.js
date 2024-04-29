@@ -6,6 +6,7 @@ import Authentication from './components/auth/Authentication';
 import AddPatientForm from './components/patients/AddPatient';
 import PatientsList from './components/patients/PatientsList';
 import PatientDetails from './components/patients/PatientDetails/PatientDetails';
+import PatientAssessmentForm from './components/medicalTasks/AssessPatient';
 import './App.css';
 
 const App = () => {
@@ -18,6 +19,12 @@ const App = () => {
           <Route exact path="/auth" element={<Authentication />} />
           <Route exact path="/patients" index element={<PatientsList />} />
           <Route exact path="/add-patient" index element={<AddPatientForm />} />
+          <Route
+            exact
+            path="/medical-tasks/patient-assessment"
+            index
+            element={<PatientAssessmentForm />}
+          />
           <Route
             exact
             path="/patients/:id"
