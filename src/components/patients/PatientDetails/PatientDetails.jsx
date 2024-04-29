@@ -29,7 +29,10 @@ const PatientDetails = () => {
 
   return (
     <div className={classes.details_container}>
-      <h2 className={classes.section_heading}>{patient.firstName}'s Details</h2>
+      <h2 className={classes.section_heading}>
+        <span className={classes.patient_name}>{patient.firstName}'s</span>{' '}
+        Details
+      </h2>
       <div className={classes.patient_data}>
         <div className={classes.details}>
           <h3 className={classes.field_name}>Name: </h3>
@@ -110,10 +113,6 @@ const PatientDetails = () => {
         <div className={classes.details}>
           <h3 className={classes.field_name}>Immunization Status: </h3>
           <h4 className={classes.field_value}>{patient.immunizationStatus}</h4>
-        </div>
-        <div className={classes.details}>
-          <h3 className={classes.field_name}>Date of Birth: </h3>
-          <h4 className={classes.field_value}>{patient.dateOfBirth}</h4>
         </div>
         <div className={classes.details}>
           <div className={classes.field_name}>Medical Aid Society: </div>
