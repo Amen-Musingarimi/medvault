@@ -29,98 +29,108 @@ const PatientDetails = () => {
 
   return (
     <div className={classes.details_container}>
-      <h2>Patient Details</h2>
+      <h2 className={classes.section_heading}>{patient.firstName}'s Details</h2>
       <div className={classes.patient_data}>
-        <h3>
-          <span className={classes.field_name}>Name: </span>
-          {patient.firstName} {patient.lastName}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>ID Number: </span>
-          {patient.idNumber}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Date of Birth: </span>
-          {patient.dateOfBirth}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Years: </span>
-          {calculateAge(patient.dateOfBirth)}yrs
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Gender: </span>
-          {capitaliseFirstLetter(patient.gender)}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Cell: </span>
-          {patient.phoneNumber}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Email Address: </span>
-          {patient.emailAddress}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Residential Address: </span>
-          {patient.residentialAddress}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Next of Keen: </span>
-          {patient.keenFirstName} {patient.keenLastName}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Name: </h3>
+          <h4 className={classes.field_value}>
+            {patient.firstName} {patient.lastName}
+          </h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>ID Number: </h3>
+          <h4 className={classes.field_value}>{patient.idNumber}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Date of Birth: </h3>
+          <h4 className={classes.field_value}>{patient.dateOfBirth}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Years: </h3>
+          <h4 className={classes.field_value}>
+            {calculateAge(patient.dateOfBirth)}yrs
+          </h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Gender: </h3>
+          <h4 className={classes.field_value}>
+            {capitaliseFirstLetter(patient.gender)}
+          </h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Cell: </h3>
+          <h4 className={classes.field_value}>{patient.phoneNumber}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Email Address: </h3>
+          <h4 className={classes.field_value}>{patient.emailAddress}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Residential Address: </h3>
+          <h4 className={classes.field_value}>{patient.residentialAddress}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Next of Keen: </h3>
+          <h4 className={classes.field_value}>
+            {patient.keenFirstName} {patient.keenLastName}
+          </h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>
             Relationship with Next of Keen:{' '}
-          </span>
-          {patient.keenRelationship}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Next of Keen Cell Number: </span>
-          {patient.keenPhoneNumber}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Medical Conditions: </span>
-          {patient.medicalConditions}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Allergies: </span>
-          {patient.allergies}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Disabilities: </span>
-          {patient.disability}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Family Medical History: </span>
-          {patient.familyMedicalHistory}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Surgical History: </span>
-          {patient.surgicalHistory}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Immunization Status: </span>
-          {patient.immunizationStatus}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Date of Birth: </span>
-          {patient.dateOfBirth}({calculateAge(patient.dateOfBirth)}yrs)
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Medical Aid Society: </span>
-          {patient.medicalAidSociety}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Policy Holder Name: </span>
-          {patient.policyHolderName}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Policy Number: </span>
-          {patient.policyNumber}
-        </h3>
-        <h3>
-          <span className={classes.field_name}>Member Cell Number: </span>
-          {patient.memberContactNumber}
-        </h3>
+          </h3>
+          <h4 className={classes.field_value}>{patient.keenRelationship}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Next of Keen Cell Number: </h3>
+          <h4 className={classes.field_value}>{patient.keenPhoneNumber}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Medical Conditions: </h3>
+          <h4 className={classes.field_value}>{patient.medicalConditions}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Allergies: </h3>
+          <h4 className={classes.field_value}>{patient.allergies}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Disabilities: </h3>
+          <h4 className={classes.field_value}>{patient.disability}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Family Medical History: </h3>
+          <h4 className={classes.field_value}>
+            {patient.familyMedicalHistory}
+          </h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Surgical History: </h3>
+          <h4 className={classes.field_value}>{patient.surgicalHistory}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Immunization Status: </h3>
+          <h4 className={classes.field_value}>{patient.immunizationStatus}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Date of Birth: </h3>
+          <h4 className={classes.field_value}>{patient.dateOfBirth}</h4>
+        </div>
+        <div className={classes.details}>
+          <div className={classes.field_name}>Medical Aid Society: </div>
+          <h4 className={classes.field_value}>{patient.medicalAidSociety}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Policy Holder Name: </h3>
+          <h4 className={classes.field_value}>{patient.policyHolderName}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Policy Number: </h3>
+          <h4 className={classes.field_value}>{patient.policyNumber}</h4>
+        </div>
+        <div className={classes.details}>
+          <h3 className={classes.field_name}>Member Cell Number: </h3>
+          <h4 className={classes.field_value}>{patient.memberContactNumber}</h4>
+        </div>
       </div>
     </div>
   );
