@@ -52,3 +52,24 @@
   font-size: 0.85rem;
   color: #6f8002;
 }
+
+.navigation_container {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.redirect_link {
+  text-decoration: none;
+  color: #fff;
+  background-color: #008080;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.redirect_link:hover {
+  background-color: #005050;
+}

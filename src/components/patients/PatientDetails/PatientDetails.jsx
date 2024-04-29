@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSinglePatient } from '../../../redux/patientsSlice';
 import classes from './PatientDetails.module.css';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const PatientDetails = () => {
   const dispatch = useDispatch();
@@ -130,6 +130,20 @@ const PatientDetails = () => {
           <h3 className={classes.field_name}>Member Cell Number: </h3>
           <h4 className={classes.field_value}>{patient.memberContactNumber}</h4>
         </div>
+      </div>
+      <div className={classes.navigation_container}>
+        <Link
+          to={`/medical-history/${patient._id}`}
+          className={classes.redirect_link}
+        >
+          View Medical History
+        </Link>
+        <Link
+          to={`/prescribe/${patient._id}`}
+          className={classes.redirect_link}
+        >
+          Prescribe Patient
+        </Link>
       </div>
     </div>
   );
