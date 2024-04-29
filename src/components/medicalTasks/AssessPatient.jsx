@@ -4,10 +4,10 @@ import classes from './AssessPatient.module.css';
 
 const PatientAssessmentForm = () => {
   const initialFormData = {
-    patient: {},
-    temperature: 0,
+    patient: '',
+    temperature: '',
     bloodPressure: '',
-    weight: 0,
+    weight: '',
     reasonForVisit: '',
     currentSymptoms: '',
     pastMedicalHistory: '',
