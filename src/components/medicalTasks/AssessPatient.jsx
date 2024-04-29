@@ -190,6 +190,17 @@ const PatientAssessmentForm = () => {
             />
           </div>
           <div className={classes.form_control}>
+            <label className={classes.input_label}>Refer To Specialist:</label>
+            <input
+              type="text"
+              name="referral"
+              placeholder="Enter specialist name and select..."
+              value={formData.referral}
+              onChange={handleChange}
+              className={classes.input_area}
+            />
+          </div>
+          <div className={classes.form_control}>
             <label className={classes.input_label}>Schedule a Checkup:</label>
             <input
               type="datetime-local"
