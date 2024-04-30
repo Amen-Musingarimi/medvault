@@ -48,12 +48,21 @@ const PatientAssessmentForm = () => {
     setPatientSearchResult(searchResult);
   };
 
-  const handleSearchResultClick = (patientId) => {
+  const handleSearchResultClick = (patient) => {
     // Set the selected patient ID in the form data
     setFormData((prevState) => ({
       ...prevState,
-      patient: patientId,
+      patient: patient._id,
+      // Populate other fields with patient details
+      // Example: If you have a field named firstName in the form data, you can populate it like this:
+      firstName: patient.firstName,
+      lastName: patient.lastName,
+      // Populate other fields accordingly
     }));
+
+    // Set the input field value with the clicked patient's details
+    setInput(`${patient.firstName} ${patient.lastName} ${patient.idNumber}`);
+    setPatientSearchResult([]);
   };
 
   const handleChange = (e) => {
@@ -72,6 +81,7 @@ const PatientAssessmentForm = () => {
     // dispatch(createPatientAssessment(formData));
     // Reset form data
     setFormData(initialFormData);
+    setInput('');
   };
 
   return (
@@ -93,7 +103,7 @@ const PatientAssessmentForm = () => {
               {patientSearchResult.map((patient) => (
                 <div
                   className={classes.search_result}
-                  onClick={() => handleSearchResultClick(patient._id)}
+                  onClick={() => handleSearchResultClick(patient)}
                   key={patient._id}
                 >
                   {patient.firstName} {patient.lastName} {patient.idNumber}
