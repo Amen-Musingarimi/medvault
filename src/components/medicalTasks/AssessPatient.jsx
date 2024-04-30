@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPatients } from '../../redux/patientsSlice';
+import { createMedicalRecord } from '../../redux/medicalRecords';
 import classes from './AssessPatient.module.css';
 
 const PatientAssessmentForm = () => {
@@ -70,6 +71,7 @@ const PatientAssessmentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    dispatch(createMedicalRecord(formData));
     setFormData(initialFormData);
     setInput('');
   };

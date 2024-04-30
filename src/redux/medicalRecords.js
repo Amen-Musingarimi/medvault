@@ -7,7 +7,7 @@ const initialState = {
   error: null,
 };
 
-export const createMedicalReord = createAsyncThunk(
+export const createMedicalRecord = createAsyncThunk(
   'medicalRecords/createMedicalRecords',
   async (medicalRecordData, { rejectWithValue }) => {
     try {
@@ -29,18 +29,18 @@ const medicalRecordsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     // Handle the pending state while creating a patient
-    builder.addCase(createMedicalReord.pending, (state) => {
+    builder.addCase(createMedicalRecord.pending, (state) => {
       state.status = 'loading';
     });
 
     // Handle the success state after creating a patient
-    builder.addCase(createMedicalReord.fulfilled, (state, action) => {
+    builder.addCase(createMedicalRecord.fulfilled, (state, action) => {
       state.status = 'succeeded';
       state.medicalRecords.push(action.payload);
     });
 
     // Handle the error state if creating a patient fails
-    builder.addCase(createMedicalReord.rejected, (state, action) => {
+    builder.addCase(createMedicalRecord.rejected, (state, action) => {
       state.status = 'failed';
       state.error = action.payload;
     });
