@@ -31,15 +31,6 @@ const PatientAssessmentForm = () => {
   const [input, setInput] = useState('');
   const [patientSearchResult, setPatientSearchResult] = useState([]);
 
-  const handleChange = (e, patientId) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-      patient: patientId,
-    }));
-  };
-
   const handleSearchChange = (value) => {
     setInput(value);
     dispatch(fetchPatients());
@@ -55,6 +46,22 @@ const PatientAssessmentForm = () => {
 
     console.log(searchResult);
     setPatientSearchResult(searchResult);
+  };
+
+  const handleSearchResultClick = (patientId) => {
+    // Set the selected patient ID in the form data
+    setFormData((prevState) => ({
+      ...prevState,
+      patient: patientId,
+    }));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -86,7 +93,7 @@ const PatientAssessmentForm = () => {
               {patientSearchResult.map((patient) => (
                 <div
                   className={classes.search_result}
-                  onClick={(e) => handleSearchChange(e.target.value)}
+                  onClick={() => handleSearchResultClick(patient._id)}
                   key={patient._id}
                 >
                   {patient.firstName} {patient.lastName} {patient.idNumber}
