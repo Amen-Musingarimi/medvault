@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPatients } from '../../redux/patientsSlice';
 import classes from './AssessPatient.module.css';
 
 const PatientAssessmentForm = () => {
+  const dispatch = useDispatch();
+  const patients = useSelector((state) => state.pat.patients);
+
   const initialFormData = {
-    patient: {},
-    temperature: 0,
+    patient: '',
+    temperature: '',
     bloodPressure: '',
-    weight: 0,
+    weight: '',
     reasonForVisit: '',
     currentSymptoms: '',
     pastMedicalHistory: '',
@@ -23,6 +27,37 @@ const PatientAssessmentForm = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [input, setInput] = useState('');
+  const [patientSearchResult, setPatientSearchResult] = useState([]);
+
+  const handleSearchChange = (value) => {
+    setInput(value);
+    dispatch(fetchPatients());
+
+    const searchResult = patients.filter((patient) => {
+      return (
+        value &&
+        patient &&
+        patient.firstName &&
+        patient.firstName.toLowerCase().includes(value.toLowerCase())
+      );
+    });
+
+    console.log(searchResult);
+    setPatientSearchResult(searchResult);
+  };
+
+  const handleSearchResultClick = (patient) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      patient: patient._id,
+      firstName: patient.firstName,
+      lastName: patient.lastName,
+    }));
+
+    setInput(`${patient.firstName} ${patient.lastName} ${patient.idNumber}`);
+    setPatientSearchResult([]);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,12 +69,9 @@ const PatientAssessmentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to backend)
     console.log(formData);
-    // Dispatch action to create patient assessment
-    // dispatch(createPatientAssessment(formData));
-    // Reset form data
     setFormData(initialFormData);
+    setInput('');
   };
 
   return (
@@ -53,10 +85,21 @@ const PatientAssessmentForm = () => {
               type="text"
               name="patient"
               placeholder="Select Patient. Enter Patient ID..."
-              value={formData.patient}
-              onChange={handleChange}
+              value={input}
+              onChange={(e) => handleSearchChange(e.target.value)}
               className={classes.input_area}
             />
+            <div className={classes.search_result_container}>
+              {patientSearchResult.map((patient) => (
+                <div
+                  className={classes.search_result}
+                  onClick={() => handleSearchResultClick(patient)}
+                  key={patient._id}
+                >
+                  {patient.firstName} {patient.lastName} {patient.idNumber}
+                </div>
+              ))}
+            </div>
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>Temperature:</label>
