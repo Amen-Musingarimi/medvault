@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPatients } from '../../redux/patientsSlice';
 import classes from './AssessPatient.module.css';
 
 const PatientAssessmentForm = () => {
+  const dispatch = useDispatch();
+  const patients = useSelector((state) => state.pat.patients);
+
+  useEffect(() => {
+    dispatch(fetchPatients());
+  }, [dispatch]);
+
+  console.log(patients);
   const initialFormData = {
     patient: '',
     temperature: '',
