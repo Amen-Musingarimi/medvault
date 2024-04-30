@@ -255,7 +255,7 @@ const PatientAssessmentForm = () => {
           <div className={classes.form_control}>
             <label className={classes.input_label}>Schedule a Checkup:</label>
             <input
-              type="datetime-local"
+              type="date"
               name="checkupDate"
               value={formData.checkupDate}
               onChange={handleChange}
