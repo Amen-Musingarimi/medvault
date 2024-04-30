@@ -7,11 +7,7 @@ const PatientAssessmentForm = () => {
   const dispatch = useDispatch();
   const patients = useSelector((state) => state.pat.patients);
 
-  useEffect(() => {
-    dispatch(fetchPatients());
-  }, [dispatch]);
-
-  console.log(patients);
+  // console.log(patients);
   const initialFormData = {
     patient: '',
     temperature: '',
@@ -32,6 +28,8 @@ const PatientAssessmentForm = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [input, setInput] = useState('');
+  const [patientSearchResult, setPatientSearchResult] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +37,23 @@ const PatientAssessmentForm = () => {
       ...prevState,
       [name]: value,
     }));
+  };
+
+  const handleSearchChange = (value) => {
+    setInput(value);
+    dispatch(fetchPatients());
+
+    const searchResult = patients.filter((patient) => {
+      return (
+        value &&
+        patient &&
+        patient.firstName &&
+        patient.firstName.toLowerCase().includes(value.toLowerCase())
+      );
+    });
+
+    console.log(searchResult);
+    setPatientSearchResult(searchResult);
   };
 
   const handleSubmit = (e) => {
@@ -62,10 +77,21 @@ const PatientAssessmentForm = () => {
               type="text"
               name="patient"
               placeholder="Select Patient. Enter Patient ID..."
-              value={formData.patient}
-              onChange={handleChange}
+              value={input}
+              onChange={(e) => handleSearchChange(e.target.value)}
               className={classes.input_area}
             />
+            <div className={classes.dropdown}>
+              {patientSearchResult.map((patient) => (
+                <div
+                  key={patient.id}
+                  className={classes.dropdown_item}
+                  // onClick={() => handleSelectPatient(patient.id)}
+                >
+                  {patient.firstName}
+                </div>
+              ))}
+            </div>
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>Temperature:</label>
