@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPatients } from '../../redux/patientsSlice';
 import classes from './AssessPatient.module.css';
@@ -31,11 +31,12 @@ const PatientAssessmentForm = () => {
   const [input, setInput] = useState('');
   const [patientSearchResult, setPatientSearchResult] = useState([]);
 
-  const handleChange = (e) => {
+  const handleChange = (e, patientId) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
+      patient: patientId,
     }));
   };
 
@@ -81,14 +82,14 @@ const PatientAssessmentForm = () => {
               onChange={(e) => handleSearchChange(e.target.value)}
               className={classes.input_area}
             />
-            <div className={classes.dropdown}>
+            <div className={classes.search_result_container}>
               {patientSearchResult.map((patient) => (
                 <div
-                  key={patient.id}
-                  className={classes.dropdown_item}
-                  // onClick={() => handleSelectPatient(patient.id)}
+                  className={classes.search_result}
+                  onClick={(e) => handleSearchChange(e.target.value)}
+                  key={patient._id}
                 >
-                  {patient.firstName}
+                  {patient.firstName} {patient.lastName} {patient.idNumber}
                 </div>
               ))}
             </div>
