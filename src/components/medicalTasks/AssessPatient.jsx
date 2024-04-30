@@ -7,7 +7,6 @@ const PatientAssessmentForm = () => {
   const dispatch = useDispatch();
   const patients = useSelector((state) => state.pat.patients);
 
-  // console.log(patients);
   const initialFormData = {
     patient: '',
     temperature: '',
@@ -49,18 +48,13 @@ const PatientAssessmentForm = () => {
   };
 
   const handleSearchResultClick = (patient) => {
-    // Set the selected patient ID in the form data
     setFormData((prevState) => ({
       ...prevState,
       patient: patient._id,
-      // Populate other fields with patient details
-      // Example: If you have a field named firstName in the form data, you can populate it like this:
       firstName: patient.firstName,
       lastName: patient.lastName,
-      // Populate other fields accordingly
     }));
 
-    // Set the input field value with the clicked patient's details
     setInput(`${patient.firstName} ${patient.lastName} ${patient.idNumber}`);
     setPatientSearchResult([]);
   };
@@ -75,11 +69,7 @@ const PatientAssessmentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to backend)
     console.log(formData);
-    // Dispatch action to create patient assessment
-    // dispatch(createPatientAssessment(formData));
-    // Reset form data
     setFormData(initialFormData);
     setInput('');
   };
