@@ -7,6 +7,7 @@ import AddPatientForm from './components/patients/AddPatient';
 import PatientsList from './components/patients/PatientsList';
 import PatientDetails from './components/patients/PatientDetails/PatientDetails';
 import PatientAssessmentForm from './components/medicalTasks/AssessPatient';
+import MedicalRecordsList from './components/medicalTasks/MedicalRecords/MedicalRecordsList';
 import './App.css';
 
 const App = () => {
@@ -30,6 +31,12 @@ const App = () => {
             path="/patients/:id"
             index
             element={<PatientDetails />}
+          />
+          <Route
+            exact
+            path="/patient/medical-history/:id"
+            index
+            element={<MedicalRecordsList />}
           />
         </Routes>
       </div>

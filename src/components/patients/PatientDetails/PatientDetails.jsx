@@ -133,7 +133,7 @@ const PatientDetails = () => {
       </div>
       <div className={classes.navigation_container}>
         <Link
-          to={`/medical-history/${patient._id}`}
+          to={`/patient/medical-history/${patient._id}`}
           className={classes.redirect_link}
         >
           View Medical History
