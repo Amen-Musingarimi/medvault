@@ -9,7 +9,7 @@ const store = configureStore({
     auth: AuthenticationReducer,
     nav: SideBarReducer,
     pat: PatientsReducer,
-    medicals: MedicalRecodsReducer,
+    medicalRecords: MedicalRecodsReducer,
   },
 });
 
