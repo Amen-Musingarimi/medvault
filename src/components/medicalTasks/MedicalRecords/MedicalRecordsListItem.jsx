@@ -1,9 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const MedicalRecordsListItem = () => {
+const MedicalRecordsListItem = ({ medicalRecord }) => {
+  console.log(medicalRecord);
   return (
     <div>
-      <h3>Medical Record</h3>
+      <h3>{medicalRecord.createdAt}</h3>
+      <p>{medicalRecord.diagnosis}</p>
+      <Link>See Details</Link>
     </div>
   );
 };
