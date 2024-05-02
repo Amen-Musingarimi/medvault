@@ -9,3 +9,10 @@
   gap: 2rem;
   list-style: none;
 }
+
+.section_heading {
+  font-size: 1.3rem;
+  color: #025252;
+  text-align: center;
+  width: 100%;
+}

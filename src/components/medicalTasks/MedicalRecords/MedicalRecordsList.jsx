@@ -22,7 +22,7 @@ const MedicalRecordsList = () => {
 
   return (
     <ul className={classes.medical_records_list_container}>
-      <h4>List of Medical Records</h4>
+      <h2 className={classes.section_heading}>List of Medical Records</h2>
       {medicalRecords.map((medicalRecord) => (
         <li key={medicalRecord._id}>
           <MedicalRecordsListItem medicalRecord={medicalRecord} />
