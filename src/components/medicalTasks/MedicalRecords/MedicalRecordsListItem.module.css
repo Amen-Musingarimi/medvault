@@ -21,3 +21,9 @@
   color: #dfff00;
   text-decoration: none;
 }
+
+.record_link:hover {
+  color: #deff04;
+  text-decoration: underline;
+  cursor: pointer;
+}
