@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchMedicalRecords } from '../../../redux/medicalRecords';
 import { useParams } from 'react-router-dom';
 import MedicalRecordsListItem from './MedicalRecordsListItem';
+import classes from './MedicalRecordsList.module.css';
 
 const MedicalRecordsList = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const MedicalRecordsList = () => {
   console.log(medicalRecords);
 
   return (
-    <ul>
+    <ul className={classes.medical_records_list_container}>
       <h4>List of Medical Records</h4>
       {medicalRecords.map((medicalRecord) => (
         <li key={medicalRecord._id}>
