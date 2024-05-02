@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPatients } from '../../redux/patientsSlice';
+import { createMedicalRecord } from '../../redux/medicalRecords';
 import classes from './AssessPatient.module.css';
 
 const PatientAssessmentForm = () => {
@@ -43,7 +44,6 @@ const PatientAssessmentForm = () => {
       );
     });
 
-    console.log(searchResult);
     setPatientSearchResult(searchResult);
   };
 
@@ -69,7 +69,7 @@ const PatientAssessmentForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    dispatch(createMedicalRecord(formData));
     setFormData(initialFormData);
     setInput('');
   };
@@ -253,7 +253,7 @@ const PatientAssessmentForm = () => {
           <div className={classes.form_control}>
             <label className={classes.input_label}>Schedule a Checkup:</label>
             <input
-              type="datetime-local"
+              type="date"
               name="checkupDate"
               value={formData.checkupDate}
               onChange={handleChange}

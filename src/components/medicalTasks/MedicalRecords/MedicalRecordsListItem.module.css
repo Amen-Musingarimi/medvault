@@ -1,0 +1,29 @@
+.list_item_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.record_date {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.record_diagnosis {
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.record_link {
+  color: #dfff00;
+  text-decoration: none;
+}
+
+.record_link:hover {
+  color: #deff04;
+  text-decoration: underline;
+  cursor: pointer;
+}
