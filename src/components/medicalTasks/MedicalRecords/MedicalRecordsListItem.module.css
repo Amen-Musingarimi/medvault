@@ -16,3 +16,8 @@
   font-weight: 300;
   text-align: center;
 }
+
+.record_link {
+  color: #dfff00;
+  text-decoration: none;
+}

@@ -21,7 +21,7 @@ const MedicalRecordsListItem = ({ medicalRecord }) => {
         {formatDate(medicalRecord.createdAt)}
       </h3>
       <p className={classes.record_diagnosis}>{medicalRecord.diagnosis}</p>
-      <Link>See Details</Link>
+      <Link className={classes.record_link}>See Details</Link>
     </div>
   );
 };
