@@ -23,11 +23,13 @@ const MedicalRecordsList = () => {
   return (
     <ul className={classes.medical_records_list_container}>
       <h2 className={classes.section_heading}>List of Medical Records</h2>
-      {medicalRecords.map((medicalRecord) => (
-        <li key={medicalRecord._id}>
-          <MedicalRecordsListItem medicalRecord={medicalRecord} />
-        </li>
-      ))}
+      <div className={classes.items_container}>
+        {medicalRecords.map((medicalRecord) => (
+          <li key={medicalRecord._id} className={classes.list_item}>
+            <MedicalRecordsListItem medicalRecord={medicalRecord} />
+          </li>
+        ))}
+      </div>
     </ul>
   );
 };

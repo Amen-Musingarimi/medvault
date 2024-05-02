@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classes from './MedicalRecordsListItem.module.css';
 
 const MedicalRecordsListItem = ({ medicalRecord }) => {
   console.log(medicalRecord);
@@ -15,7 +16,7 @@ const MedicalRecordsListItem = ({ medicalRecord }) => {
   }
 
   return (
-    <div>
+    <div className={classes.list_item_container}>
       <h3>{formatDate(medicalRecord.createdAt)}</h3>
       <p>{medicalRecord.diagnosis}</p>
       <Link>See Details</Link>

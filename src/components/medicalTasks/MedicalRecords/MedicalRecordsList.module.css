@@ -16,3 +16,22 @@
   text-align: center;
   width: 100%;
 }
+
+.items_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-items: center;
+  background-color: antiquewhite;
+  width: 100%;
+}
+
+.list_item {
+  width: 30%;
+  height: 10rem;
+  margin: 10px;
+  padding: 1rem;
+  border: 1px solid #d3d3d3;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #008080;
+}
