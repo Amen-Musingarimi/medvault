@@ -138,12 +138,12 @@ const PatientDetails = () => {
         >
           View Medical History
         </Link>
-        <Link
-          to={`/prescribe/${patient._id}`}
-          className={classes.redirect_link}
-        >
-          Prescribe Patient
+        <Link to={`/edit/${patient._id}`} className={classes.redirect_link}>
+          Edit Patient
         </Link>
+        <button type="button" className={classes.delete_button}>
+          Delete Patient
+        </button>
       </div>
     </div>
   );
