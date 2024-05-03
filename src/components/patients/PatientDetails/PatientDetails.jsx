@@ -86,6 +86,35 @@ const PatientDetails = () => {
             </div>
           </div>
         </div>
+        <div className={classes.details_wrapper}>
+          <h3 className={classes.details_heading}>Details of Next of Keen</h3>
+          <div className={classes.patient_details}>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>First Name: </h3>
+                <h4 className={classes.field_value}>{patient.keenFirstName}</h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Last Name: </h3>
+                <h4 className={classes.field_value}>{patient.keenLastName}</h4>
+              </div>
+            </div>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Relationship: </h3>
+                <h4 className={classes.field_value}>
+                  {patient.keenRelationship}
+                </h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Cell Number: </h3>
+                <h4 className={classes.field_value}>
+                  {capitaliseFirstLetter(patient.keenPhoneNumber)}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className={classes.navigation_container}>
           <Link
             to={`/patient/medical-history/${patient._id}`}
