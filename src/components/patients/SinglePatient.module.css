@@ -5,7 +5,6 @@
   align-items: flex-start;
   gap: 1.5rem;
   text-decoration: none;
-  color: #025252;
   width: 15rem;
 }
 
@@ -17,11 +16,13 @@
 }
 
 .heading {
-  font-size: 0.75rem;
-  color: #008080;
+  font-size: 0.7rem;
+  color: #dfff00;
+  font-weight: 400;
 }
 
 .value {
-  font-size: 0.85rem;
-  color: #015858;
+  font-size: 0.8rem;
+  color: #fff;
+  font-weight: 400;
 }
