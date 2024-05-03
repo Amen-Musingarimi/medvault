@@ -17,7 +17,7 @@
   background-color: aquamarine;
   gap: 2rem;
   width: 90%;
-  padding: 2rem 1rem;
+  padding: 2rem 0;
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -30,7 +30,33 @@
 
 .details_wrapper {
   width: 100%;
-  /* padding: 2rem 1rem; */
+  padding: 0rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.patient_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.details_section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.values_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
 }
 
 .details_heading {

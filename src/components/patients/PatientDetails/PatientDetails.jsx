@@ -36,15 +36,15 @@ const PatientDetails = () => {
         </h2>
         <div className={classes.details_wrapper}>
           <h3 className={classes.details_heading}>Personal Details</h3>
-          <div className={classes.details_cont}>
-            <div className={classes.patient_details}>
-              <div className={classes.first_container}>
+          <div className={classes.patient_details}>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
                 <h3 className={classes.field_name}>Name: </h3>
                 <h4 className={classes.field_value}>
                   {patient.firstName} {patient.lastName}
                 </h4>
               </div>
-              <div className={classes.second_container}>
+              <div className={classes.values_container}>
                 <h3 className={classes.field_name}>ID Number: </h3>
                 <h4 className={classes.field_value}>{patient.idNumber}</h4>
               </div>
