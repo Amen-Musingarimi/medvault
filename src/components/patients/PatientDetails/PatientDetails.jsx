@@ -59,6 +59,31 @@ const PatientDetails = () => {
                 </h4>
               </div>
             </div>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Cell Number: </h3>
+                <h4 className={classes.field_value}>{patient.phoneNumber}</h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Date of Birth: </h3>
+                <h4 className={classes.field_value}>
+                  {patient.dateOfBirth}({calculateAge(patient.dateOfBirth)}
+                  years)
+                </h4>
+              </div>
+            </div>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Email Address: </h3>
+                <h4 className={classes.field_value}>{patient.emailAddress}</h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Residential Address: </h3>
+                <h4 className={classes.field_value}>
+                  {patient.residentialAddress}
+                </h4>
+              </div>
+            </div>
           </div>
         </div>
         <div className={classes.navigation_container}>
