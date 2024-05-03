@@ -63,15 +63,20 @@
 }
 
 .redirect_link,
-.delete_button {
+.delete_button,
+.edit_link {
   color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 8px;
 }
 
+.redirect_link,
+.edit_link {
+  text-decoration: none;
+}
+
 .redirect_link {
   background-color: #008080;
-  text-decoration: none;
 }
 
 .delete_button {
@@ -80,10 +85,18 @@
   cursor: pointer;
 }
 
+.edit_link {
+  background-color: #0096ff;
+}
+
 .delete_button:hover {
   background-color: red;
 }
 
 .redirect_link:hover {
   background-color: #005050;
+}
+
+.edit_link:hover {
+  background-color: #0047ab;
 }
