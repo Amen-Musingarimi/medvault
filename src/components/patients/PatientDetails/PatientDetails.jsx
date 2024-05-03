@@ -39,14 +39,24 @@ const PatientDetails = () => {
           <div className={classes.patient_details}>
             <div className={classes.details_section}>
               <div className={classes.values_container}>
-                <h3 className={classes.field_name}>Name: </h3>
-                <h4 className={classes.field_value}>
-                  {patient.firstName} {patient.lastName}
-                </h4>
+                <h3 className={classes.field_name}>First Name: </h3>
+                <h4 className={classes.field_value}>{patient.firstName}</h4>
               </div>
               <div className={classes.values_container}>
-                <h3 className={classes.field_name}>ID Number: </h3>
+                <h3 className={classes.field_name}>Last Name: </h3>
+                <h4 className={classes.field_value}>{patient.lastName}</h4>
+              </div>
+            </div>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Id Number: </h3>
                 <h4 className={classes.field_value}>{patient.idNumber}</h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Gender: </h3>
+                <h4 className={classes.field_value}>
+                  {capitaliseFirstLetter(patient.gender)}
+                </h4>
               </div>
             </div>
           </div>
