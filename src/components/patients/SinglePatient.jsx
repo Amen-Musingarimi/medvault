@@ -11,7 +11,7 @@ const SinglePatient = ({ patient }) => {
   };
 
   return (
-    <Link to={`/patients/${patient._id}`} className={classes.patient_link}>
+    <Link to={`/patients/${patient._id}`} className={classes.patient_card}>
       <div className={classes.details_container}>
         <h4 className={classes.heading}>NAME: </h4>
         <h3 className={classes.value}>
@@ -34,6 +34,12 @@ const SinglePatient = ({ patient }) => {
         <h4 className={classes.heading}>CELL: </h4>
         <h3 className={classes.value}>{patient.phoneNumber}</h3>
       </div>
+      <Link
+        to={`/patients/${patient._id}`}
+        className={classes.see_details_link}
+      >
+        More Details
+      </Link>
     </Link>
   );
 };
