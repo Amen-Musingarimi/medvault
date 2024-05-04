@@ -27,6 +27,16 @@ const PatientDetails = () => {
     return gender.charAt(0).toUpperCase() + gender.slice(1);
   };
 
+  const formatDate = (dateString) => {
+    const options = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', options);
+  };
+
   return (
     <div className={classes.details_container}>
       <div className={classes.patient_data}>
@@ -67,8 +77,8 @@ const PatientDetails = () => {
               <div className={classes.values_container}>
                 <h3 className={classes.field_name}>Date of Birth: </h3>
                 <h4 className={classes.field_value}>
-                  {patient.dateOfBirth}({calculateAge(patient.dateOfBirth)}
-                  years)
+                  {formatDate(patient.dateOfBirth)} (
+                  {calculateAge(patient.dateOfBirth)} years)
                 </h4>
               </div>
             </div>
