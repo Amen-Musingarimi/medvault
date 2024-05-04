@@ -1,11 +1,10 @@
-.patient_link {
+.patient_card {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 1.5rem;
   text-decoration: none;
-  color: #025252;
   width: 15rem;
 }
 
@@ -17,11 +16,26 @@
 }
 
 .heading {
-  font-size: 0.75rem;
-  color: #008080;
+  font-size: 0.7rem;
+  color: #dfff00;
+  font-weight: 400;
 }
 
 .value {
-  font-size: 0.85rem;
-  color: #015858;
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+.see_details_link {
+  color: #add8e6;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+}
+
+.see_details_link:hover {
+  color: #96ded1;
+  text-decoration: underline;
+  cursor: pointer;
 }

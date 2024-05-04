@@ -4,7 +4,7 @@ import classes from './MedicalRecordsListItem.module.css';
 
 const MedicalRecordsListItem = ({ medicalRecord }) => {
   console.log(medicalRecord);
-  function formatDate(dateString) {
+  const formatDate = (dateString) => {
     const options = {
       weekday: 'long',
       day: 'numeric',
@@ -13,7 +13,7 @@ const MedicalRecordsListItem = ({ medicalRecord }) => {
     };
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', options);
-  }
+  };
 
   return (
     <div className={classes.list_item_container}>
