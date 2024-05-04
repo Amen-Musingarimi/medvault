@@ -115,6 +115,53 @@ const PatientDetails = () => {
             </div>
           </div>
         </div>
+        <div className={classes.details_wrapper}>
+          <h3 className={classes.details_heading}>Healthy Details</h3>
+          <div className={classes.patient_details}>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Medical Conditions: </h3>
+                <h4 className={classes.field_value}>
+                  {patient.medicalConditions}
+                </h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Family Medical History: </h3>
+                <h4 className={classes.field_value}>
+                  {patient.familyMedicalHistory}
+                </h4>
+              </div>
+            </div>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Allergies: </h3>
+                <h4 className={classes.field_value}>{patient.allergies}</h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Disabilities: </h3>
+                <h4 className={classes.field_value}>
+                  {capitaliseFirstLetter(patient.disability)}
+                </h4>
+              </div>
+            </div>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>
+                  Past Medical Procedures:{' '}
+                </h3>
+                <h4 className={classes.field_value}>
+                  {patient.surgicalHistory}
+                </h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Immunization Status: </h3>
+                <h4 className={classes.field_value}>
+                  {capitaliseFirstLetter(patient.immunizationStatus)}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className={classes.navigation_container}>
           <Link
             to={`/patient/medical-history/${patient._id}`}
