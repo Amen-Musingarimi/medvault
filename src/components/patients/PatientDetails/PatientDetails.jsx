@@ -156,7 +156,40 @@ const PatientDetails = () => {
               <div className={classes.values_container}>
                 <h3 className={classes.field_name}>Immunization Status: </h3>
                 <h4 className={classes.field_value}>
-                  {capitaliseFirstLetter(patient.immunizationStatus)}
+                  {patient.immunizationStatus}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={classes.details_wrapper}>
+          <h3 className={classes.details_heading}>Medical Aid Information</h3>
+          <div className={classes.patient_details}>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Medical Aid Society: </h3>
+                <h4 className={classes.field_value}>
+                  {patient.medicalAidSociety}
+                </h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Member's Name: </h3>
+                <h4 className={classes.field_value}>
+                  {patient.policyHolderName}
+                </h4>
+              </div>
+            </div>
+            <div className={classes.details_section}>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>Policy Number: </h3>
+                <h4 className={classes.field_value}>{patient.policyNumber}</h4>
+              </div>
+              <div className={classes.values_container}>
+                <h3 className={classes.field_name}>
+                  Member's Contact Number:{' '}
+                </h3>
+                <h4 className={classes.field_value}>
+                  {patient.memberContactNumber}
                 </h4>
               </div>
             </div>
