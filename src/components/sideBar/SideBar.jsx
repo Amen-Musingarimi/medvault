@@ -8,10 +8,7 @@ import {
   FaUsers,
   FaUsersCog,
   FaUserCog,
-  FaPills,
   FaStethoscope,
-  FaFlask,
-  FaFileAlt,
   FaNotesMedical,
 } from 'react-icons/fa';
 import { FcStatistics } from 'react-icons/fc';
@@ -51,21 +48,9 @@ const SideBar = () => {
             <FaNotesMedical />
             <p className={classes.homeText}>Assess Patient</p>
           </Link>
-          <Link to="/prescribe-medication" className={classes.homeLink}>
-            <FaPills />
-            <p className={classes.homeText}>Prescribe Medication</p>
-          </Link>
           <Link to="/create-treatment-plan" className={classes.homeLink}>
             <FaStethoscope />
-            <p className={classes.homeText}>Create Treatment Plan</p>
-          </Link>
-          <Link to="/order-tests" className={classes.homeLink}>
-            <FaFlask />
-            <p className={classes.homeText}>Order Tests</p>
-          </Link>
-          <Link to="/generate-reports" className={classes.homeLink}>
-            <FaFileAlt />
-            <p className={classes.homeText}>Generate Reports</p>
+            <p className={classes.homeText}>Referals</p>
           </Link>
         </div>
 
