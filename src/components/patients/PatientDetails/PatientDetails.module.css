@@ -24,8 +24,9 @@
 
 .section_heading {
   font-size: 1.3rem;
-  color: #025252;
+  color: #011b1b;
   align-self: center;
+  padding-top: 1rem;
 }
 
 .details_wrapper {
@@ -34,7 +35,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  /* gap: 1rem; */
 }
 
 .patient_details {
@@ -69,23 +69,24 @@
 }
 
 .details_heading {
-  color: #005050;
+  color: #002222;
+  padding: 0.5rem 1rem;
 }
 
 .patient_name {
-  color: #dfff00;
+  color: #002222;
 }
 
 .field_name {
-  font-size: 0.8rem;
-  color: #91a703;
-  font-weight: 500;
+  font-size: 0.85rem;
+  color: yellowgreen;
+  font-weight: 600;
 }
 
 .field_value {
-  font-size: 0.8rem;
-  color: #fff;
-  font-weight: 400;
+  font-size: 0.85rem;
+  color: #0a1930;
+  font-weight: 500;
 }
 
 .navigation_container {
@@ -111,7 +112,7 @@
 }
 
 .redirect_link {
-  background-color: #008080;
+  background-color: #015a5a;
 }
 
 .delete_button {
