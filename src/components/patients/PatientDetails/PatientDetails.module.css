@@ -17,7 +17,7 @@
   background-color: #008080;
   gap: 2rem;
   width: 90%;
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
@@ -30,12 +30,11 @@
 
 .details_wrapper {
   width: 100%;
-  padding: 0rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1rem;
+  /* gap: 1rem; */
 }
 
 .patient_details {
@@ -60,10 +59,12 @@
   padding: 0.5rem 0;
 }
 
-.patient_data > div:nth-child(even) {
+.patient_details > div:nth-child(even) {
   background-color: #fff;
-  padding-top: 1rem;
-  color: #008080 !important;
+}
+
+.patient_details > div:nth-child(odd) {
+  background-color: #03dada;
 }
 
 .details_heading {
