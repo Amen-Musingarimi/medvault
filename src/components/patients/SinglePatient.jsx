@@ -11,36 +11,16 @@ const SinglePatient = ({ patient }) => {
   };
 
   return (
-    <Link to={`/patients/${patient._id}`} className={classes.patient_card}>
-      <div className={classes.details_container}>
-        <h4 className={classes.heading}>NAME: </h4>
-        <h3 className={classes.value}>
-          {patient.firstName} {patient.lastName}{' '}
-        </h3>
-      </div>
-      <div className={classes.details_container}>
-        <h4 className={classes.heading}>ID NUMBER: </h4>
-        <h3 className={classes.value}>{patient.idNumber}</h3>
-      </div>
-      <div className={classes.details_container}>
-        <h4 className={classes.heading}>AGE: </h4>
-        <h3 className={classes.value}>{calculateAge(patient.dateOfBirth)}</h3>
-      </div>
-      <div className={classes.details_container}>
-        <h4 className={classes.heading}>GENDER: </h4>
-        <h3 className={classes.value}>{patient.gender}</h3>
-      </div>
-      <div className={classes.details_container}>
-        <h4 className={classes.heading}>CELL: </h4>
-        <h3 className={classes.value}>{patient.phoneNumber}</h3>
-      </div>
-      <Link
-        to={`/patients/${patient._id}`}
-        className={classes.see_details_link}
-      >
-        More Details
-      </Link>
-    </Link>
+    <tr key={patient._id}>
+      <td>{patient.idNumber}</td>
+      <td>{patient.firstName}</td>
+      <td>{patient.lastName}</td>
+      <td>{patient.gender}</td>
+      <td>{calculateAge(patient.dateOfBirth)}</td>
+      <td>
+        <Link to={`/patients/${patient._id}`}>View</Link>
+      </td>
+    </tr>
   );
 };
 

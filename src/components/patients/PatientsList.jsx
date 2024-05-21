@@ -20,22 +20,27 @@ const PatientsList = () => {
   // const isEmpty = Object.keys(patient).length === 0;
 
   return (
-    <div className={classes.patients_list_container}>
-      <h2 className={classes.section_heading}>Patients List</h2>
+    <div>
       <SearchPatientForm />
-      <ul className={classes.patients_list}>
-        {patient ? (
-          <li key={patient._id} className={classes.list_item}>
+      <table className={classes.patients_list_container}>
+        <thead>
+          <tr>
+            <th>Id Number</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody className={classes.patients_list}>
+          {patient ? (
             <SinglePatient patient={patient} />
-          </li>
-        ) : (
-          patients.map((patient) => (
-            <li key={patient._id} className={classes.list_item}>
-              <SinglePatient patient={patient} />
-            </li>
-          ))
-        )}
-      </ul>
+          ) : (
+            patients.map((patient) => <SinglePatient patient={patient} />)
+          )}
+        </tbody>
+      </table>
     </div>
   );
 };
