@@ -21,21 +21,26 @@ const PatientsList = () => {
 
   return (
     <div className={classes.patients_list_container}>
-      <h2 className={classes.section_heading}>Patients List</h2>
       <SearchPatientForm />
-      <ul className={classes.patients_list}>
-        {patient ? (
-          <li key={patient._id} className={classes.list_item}>
+      <table className={classes.table}>
+        <thead className={classes.thead}>
+          <tr className={classes.table_header}>
+            <th className={classes.table_header_col}>Id Number</th>
+            <th className={classes.table_header_col}>First Name</th>
+            <th className={classes.table_header_col}>Surname</th>
+            <th className={classes.table_header_col}>Age</th>
+            <th className={classes.table_header_col}>Gender</th>
+            <th className={classes.table_header_col}>Action</th>
+          </tr>
+        </thead>
+        <tbody className={classes.patients_list}>
+          {patient ? (
             <SinglePatient patient={patient} />
-          </li>
-        ) : (
-          patients.map((patient) => (
-            <li key={patient._id} className={classes.list_item}>
-              <SinglePatient patient={patient} />
-            </li>
-          ))
-        )}
-      </ul>
+          ) : (
+            patients.map((patient) => <SinglePatient patient={patient} />)
+          )}
+        </tbody>
+      </table>
     </div>
   );
 };

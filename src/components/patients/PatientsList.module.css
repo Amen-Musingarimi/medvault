@@ -1,33 +1,36 @@
 .patients_list_container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
-  width: 100%;
-  padding: 2rem;
-  min-height: 100vh;
-  gap: 1.5rem;
-}
-
-.section_heading {
-  font-size: 1.3rem;
-  color: #025252;
-}
-
-.patients_list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  height: 100%;
-  list-style: none;
+  width: 100%;
+  padding: 4rem 2rem;
+  text-align: left;
 }
 
-.list_item {
-  padding: 1.5rem;
-  border-radius: 4px;
-  color: #fff;
+.table {
+  width: 100%;
+  border: 1px solid #d3d3d3;
+  border-bottom: none;
+  border-spacing: 0px;
+}
+
+thead,
+tbody,
+tr {
+  width: 100%;
+}
+
+.thead {
+  width: 100%;
+}
+
+.table_header {
   background-color: #008080;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  color: #fff;
+}
+
+.table_header_col {
+  padding: 0.5rem;
+  font-weight: 500;
 }
