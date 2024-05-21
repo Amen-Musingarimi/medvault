@@ -20,9 +20,9 @@ const PatientsList = () => {
   // const isEmpty = Object.keys(patient).length === 0;
 
   return (
-    <div>
+    <div className={classes.patients_list_container}>
       <SearchPatientForm />
-      <table className={classes.patients_list_container}>
+      <table>
         <thead>
           <tr>
             <th>Id Number</th>
