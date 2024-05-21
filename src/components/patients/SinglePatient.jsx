@@ -11,13 +11,15 @@ const SinglePatient = ({ patient }) => {
   };
 
   return (
-    <tr key={patient._id}>
-      <td>{patient.idNumber}</td>
-      <td>{patient.firstName}</td>
-      <td>{patient.lastName}</td>
-      <td>{patient.gender}</td>
-      <td>{calculateAge(patient.dateOfBirth)}</td>
-      <td>
+    <tr key={patient._id} className={classes.table_body_row}>
+      <td className={classes.table_body_col}>{patient.idNumber}</td>
+      <td className={classes.table_body_col}>{patient.firstName}</td>
+      <td className={classes.table_body_col}>{patient.lastName}</td>
+      <td className={classes.table_body_col}>{patient.gender}</td>
+      <td className={classes.table_body_col}>
+        {calculateAge(patient.dateOfBirth)}
+      </td>
+      <td className={classes.table_body_col}>
         <Link to={`/patients/${patient._id}`}>View</Link>
       </td>
     </tr>
