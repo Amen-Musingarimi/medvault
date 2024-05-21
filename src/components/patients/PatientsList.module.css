@@ -5,4 +5,33 @@
   align-items: center;
   width: 100%;
   padding: 4rem 2rem;
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  border: none;
+  border-collapse: unset;
+  border-spacing: 0px;
+}
+
+thead,
+tbody,
+tr {
+  width: 100%;
+}
+
+.thead {
+  width: 100%;
+}
+
+.table_header {
+  background-color: #008080;
+  color: #fff;
+}
+
+.table_header_col {
+  padding: 0.5rem;
+  border: none;
+  font-weight: 500;
 }
