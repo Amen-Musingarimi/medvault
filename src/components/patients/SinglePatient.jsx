@@ -20,7 +20,9 @@ const SinglePatient = ({ patient }) => {
         {calculateAge(patient.dateOfBirth)}
       </td>
       <td className={classes.table_body_col}>
-        <Link to={`/patients/${patient._id}`}>View</Link>
+        <Link to={`/patients/${patient._id}`} className={classes.view_btn}>
+          View
+        </Link>
       </td>
     </tr>
   );
