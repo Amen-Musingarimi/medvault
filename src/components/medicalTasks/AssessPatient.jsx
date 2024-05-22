@@ -84,7 +84,7 @@ const PatientAssessmentForm = () => {
             <input
               type="text"
               name="patient"
-              placeholder="Select Patient. Enter Patient ID..."
+              placeholder="Select Patient. Enter Patient Name..."
               value={input}
               onChange={(e) => handleSearchChange(e.target.value)}
               className={classes.input_area}
