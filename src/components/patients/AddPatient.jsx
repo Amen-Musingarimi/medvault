@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPatient } from '../../redux/patientsSlice';
 import classes from './AddPatient.module.css';
@@ -7,35 +7,46 @@ const AddPatientForm = () => {
   const dispatch = useDispatch();
   const error = useSelector((state) => state.pat.error);
   const status = useSelector((state) => state.pat.status);
-  console.log(error, status);
 
-  const initialFormData = {
-    firstName: '',
-    lastName: '',
-    idNumber: '',
-    dateOfBirth: '',
-    gender: '',
-    phoneNumber: '',
-    emailAddress: '',
-    residentialAddress: '',
-    keenFirstName: '',
-    keenLastName: '',
-    keenRelationship: '',
-    keenPhoneNumber: '',
-    medicalConditions: '',
-    allergies: '',
-    disability: '',
-    familyMedicalHistory: '',
-    surgicalHistory: '',
-    immunizationStatus: '',
-    medicalAidSociety: '',
-    policyHolderName: '',
-    policyNumber: '',
-    memberContactNumber: '',
-  };
+  const initialFormData = useMemo(
+    () => ({
+      firstName: '',
+      lastName: '',
+      idNumber: '',
+      dateOfBirth: '',
+      gender: '',
+      phoneNumber: '',
+      emailAddress: '',
+      residentialAddress: '',
+      keenFirstName: '',
+      keenLastName: '',
+      keenRelationship: '',
+      keenPhoneNumber: '',
+      medicalConditions: '',
+      allergies: '',
+      disability: '',
+      familyMedicalHistory: '',
+      surgicalHistory: '',
+      immunizationStatus: '',
+      medicalAidSociety: '',
+      policyHolderName: '',
+      policyNumber: '',
+      memberContactNumber: '',
+    }),
+    []
+  );
 
   const [formData, setFormData] = useState(initialFormData);
   const [formError, setFormError] = useState(null);
+
+  useEffect(() => {
+    if (status === 'failed') {
+      setFormError(error);
+    } else if (status === 'succeeded') {
+      setFormData(initialFormData);
+      setFormError(null);
+    }
+  }, [status, error, initialFormData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -47,12 +58,7 @@ const AddPatientForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     dispatch(createPatient(formData));
-    if (status === 'failed') {
-      setFormError(error);
-    }
-    setFormData(initialFormData);
   };
 
   return (
@@ -60,6 +66,7 @@ const AddPatientForm = () => {
       {/* Patient Details Input Forms */}
       <div className={classes.personal_details}>
         <h2 className={classes.form_section_heading}>Personal Details</h2>
+        {formError && <div className={classes.error_message}>{formError}</div>}
         <div className={classes.personal_details_inputs}>
           <div className={classes.form_control}>
             <label className={classes.input_label}>
@@ -101,7 +108,7 @@ const AddPatientForm = () => {
               placeholder="22-778899A00"
               value={formData.idNumber}
               pattern=".{12}"
-              title="National ID must be exactly 10 characters long."
+              title="National ID must be exactly 12 characters long."
               onChange={handleChange}
               required
               className={classes.input_area}
@@ -154,8 +161,7 @@ const AddPatientForm = () => {
           </div>
           <div className={classes.form_control}>
             <label className={classes.input_label}>
-              Email Address:{' '}
-              <span className={classes.optional_message}>[optional]</span>
+              Email Address: <span className={classes.required_sign}>*</span>
             </label>
             <input
               type="email"
@@ -415,7 +421,7 @@ const AddPatientForm = () => {
         </div>
       </div>
       <button type="submit" className={classes.submit_btn}>
-        Submit
+        Add Patient
       </button>
     </form>
   );

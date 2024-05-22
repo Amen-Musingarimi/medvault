@@ -15,6 +15,10 @@
   align-self: center;
 }
 
+.error_message {
+  color: red;
+}
+
 .personal_details {
   display: flex;
   flex-direction: column;
