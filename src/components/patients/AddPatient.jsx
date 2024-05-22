@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createPatient } from '../../redux/patientsSlice';
 import classes from './AddPatient.module.css';
 
 const AddPatientForm = () => {
   const dispatch = useDispatch();
+  const error = useSelector((state) => state.pat.error);
+  const status = useSelector((state) => state.pat.status);
+  console.log(error, status);
 
   const initialFormData = {
     firstName: '',
@@ -32,6 +35,7 @@ const AddPatientForm = () => {
   };
 
   const [formData, setFormData] = useState(initialFormData);
+  const [formError, setFormError] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,9 +47,11 @@ const AddPatientForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to backend)
     console.log(formData);
     dispatch(createPatient(formData));
+    if (status === 'failed') {
+      setFormError(error);
+    }
     setFormData(initialFormData);
   };
 
