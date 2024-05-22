@@ -145,7 +145,7 @@ const patientsSlice = createSlice({
     // Handle the error state if creating a patient fails
     builder.addCase(createPatient.rejected, (state, action) => {
       state.status = 'failed';
-      state.error = action.payload;
+      state.error = action.payload.message;
     });
   },
 });

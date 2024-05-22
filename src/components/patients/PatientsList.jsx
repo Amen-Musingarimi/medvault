@@ -28,16 +28,18 @@ const PatientsList = () => {
             <th className={classes.table_header_col}>Id Number</th>
             <th className={classes.table_header_col}>First Name</th>
             <th className={classes.table_header_col}>Surname</th>
-            <th className={classes.table_header_col}>Age</th>
             <th className={classes.table_header_col}>Gender</th>
+            <th className={classes.table_header_col}>Age</th>
             <th className={classes.table_header_col}>Action</th>
           </tr>
         </thead>
         <tbody className={classes.patients_list}>
           {patient ? (
-            <SinglePatient patient={patient} />
+            <SinglePatient patient={patient} key={patient._id} />
           ) : (
-            patients.map((patient) => <SinglePatient patient={patient} />)
+            patients.map((patient) => (
+              <SinglePatient patient={patient} key={patient._id} />
+            ))
           )}
         </tbody>
       </table>
