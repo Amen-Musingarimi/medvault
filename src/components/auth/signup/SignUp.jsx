@@ -112,7 +112,9 @@ const DoctorSignup = () => {
           >
             <option value="">Select Specialization</option>
             {specializations.map((specialization) => (
-              <option value={specialization}>{specialization}</option>
+              <option value={specialization} key={specialization}>
+                {specialization}
+              </option>
             ))}
           </select>
           <p className={classes.errorMessage}></p>
