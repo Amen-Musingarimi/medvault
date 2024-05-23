@@ -6,6 +6,7 @@ const DoctorSignup = () => {
     lastName: '',
     emailAddress: '',
     password: '',
+    confirmPassword: '',
     gender: '',
     phoneNumber: '',
     specialization: '',
@@ -57,22 +58,12 @@ const DoctorSignup = () => {
           />
         </div>
         <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
           <label>Gender:</label>
-          <input
-            type="text"
-            name="gender"
-            value={formData.gender}
-            onChange={handleChange}
-          />
+          <select name="gender" value={formData.gender} onChange={handleChange}>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
         </div>
         <div>
           <label>Phone Number:</label>
@@ -107,6 +98,24 @@ const DoctorSignup = () => {
             type="text"
             name="hospital"
             value={formData.hospital}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Confirm Password:</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            value={formData.confirmPassword}
             onChange={handleChange}
           />
         </div>
