@@ -10,18 +10,15 @@ const initialState = {
 
 export const registerUser = createAsyncThunk(
   'auth/register',
-  async (userInput, thunkAPI) => {
+  async (formData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        'http://localhost:3001/users',
-        userInput
+        'http://localhost:8080/auth/signup',
+        formData
       );
       return response.data;
     } catch (error) {
-      if (error.response && error.response.status === 422) {
-        return thunkAPI.rejectWithValue('Username must be unique');
-      }
-      return thunkAPI.rejectWithValue('Something went wrong!');
+      return rejectWithValue(error.response.data);
     }
   }
 );

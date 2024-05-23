@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../../redux/authenticationSlice';
 import classes from './SignUp.modules.css';
 
 const DoctorSignup = () => {
+  const dispatch = useDispatch();
+  const error = useSelector((state) => state.auth.error);
+  const status = useSelector((state) => state.auth.status);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -14,6 +20,7 @@ const DoctorSignup = () => {
     medicalLicenseNumber: '',
     hospital: '',
   });
+  const [formError, setFormError] = useState(null);
 
   const specializations = [
     'General Practitioner',
@@ -34,6 +41,26 @@ const DoctorSignup = () => {
     'Pulmonologist',
   ];
 
+  useEffect(() => {
+    if (status === 'failed') {
+      setFormError(error);
+    } else if (status === 'succeeded') {
+      setFormData({
+        firstName: '',
+        lastName: '',
+        emailAddress: '',
+        password: '',
+        confirmPassword: '',
+        gender: '',
+        phoneNumber: '',
+        specialization: '',
+        medicalLicenseNumber: '',
+        hospital: '',
+      });
+      setFormError(null);
+    }
+  }, [status, error]);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -43,6 +70,7 @@ const DoctorSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch(registerUser(formData));
     console.log(formData);
   };
 
@@ -50,6 +78,7 @@ const DoctorSignup = () => {
     <div>
       <h1>Doctor Signup</h1>
       <form onSubmit={handleSubmit}>
+        {formError && <div className={classes.error_message}>{formError}</div>}
         <div>
           <label>First Name:</label>
           <input
