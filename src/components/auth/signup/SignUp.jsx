@@ -75,9 +75,9 @@ const DoctorSignup = () => {
   };
 
   return (
-    <div className="signup-page">
+    <div className="signup-page flex-column">
       <h1>Doctor Signup</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="signup-form flex-column">
         {formError && <div className={classes.error_message}>{formError}</div>}
         <div>
           <label>First Name:</label>
