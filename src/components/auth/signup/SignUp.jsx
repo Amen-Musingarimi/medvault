@@ -75,7 +75,7 @@ const DoctorSignup = () => {
   };
 
   return (
-    <div>
+    <div className="signup-page">
       <h1>Doctor Signup</h1>
       <form onSubmit={handleSubmit}>
         {formError && <div className={classes.error_message}>{formError}</div>}
