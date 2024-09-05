@@ -83,7 +83,7 @@ const DoctorSignup = () => {
             <div className={classes.error_message}>{formError}</div>
           )}
           <div className="form-control">
-            <label>First Name:</label>
+            <label className="form-label">First Name:</label>
             <input
               type="text"
               name="firstName"
@@ -94,7 +94,7 @@ const DoctorSignup = () => {
             <p className={classes.errorMessage}></p>
           </div>
           <div className="form-control">
-            <label>Last Name:</label>
+            <label className="form-label">Last Name:</label>
             <input
               type="text"
               name="lastName"
@@ -106,7 +106,7 @@ const DoctorSignup = () => {
           </div>
 
           <div className="form-control">
-            <label>Email Address:</label>
+            <label className="form-label">Email Address:</label>
             <input
               type="email"
               name="emailAddress"
@@ -116,7 +116,7 @@ const DoctorSignup = () => {
             <p className={classes.errorMessage}></p>
           </div>
           <div className="form-control">
-            <label>Gender:</label>
+            <label className="form-label">Gender:</label>
             <select
               name="gender"
               value={formData.gender}
@@ -129,7 +129,7 @@ const DoctorSignup = () => {
             <p className={classes.errorMessage}></p>
           </div>
           <div className="form-control">
-            <label>Phone Number:</label>
+            <label className="form-label">Phone Number:</label>
             <input
               type="text"
               name="phoneNumber"
@@ -140,7 +140,7 @@ const DoctorSignup = () => {
             <p className={classes.errorMessage}></p>
           </div>
           <div className="form-control">
-            <label>Specialization:</label>
+            <label className="form-label">Specialization:</label>
 
             <select
               name="specialization"
@@ -157,7 +157,7 @@ const DoctorSignup = () => {
             <p className={classes.errorMessage}></p>
           </div>
           <div className="form-control">
-            <label>Medical License Number:</label>
+            <label className="form-label">Medical License Number:</label>
             <input
               type="text"
               name="medicalLicenseNumber"
@@ -167,7 +167,7 @@ const DoctorSignup = () => {
             <p className={classes.errorMessage}></p>
           </div>
           <div className="form-control">
-            <label>Hospital:</label>
+            <label className="form-label">Hospital:</label>
             <input
               type="text"
               name="hospital"
@@ -177,7 +177,7 @@ const DoctorSignup = () => {
             <p className={classes.errorMessage}></p>
           </div>
           <div className="form-control">
-            <label>Password:</label>
+            <label className="form-label">Password:</label>
             <input
               type="password"
               name="password"
@@ -187,7 +187,7 @@ const DoctorSignup = () => {
             <p className={classes.errorMessage}></p>
           </div>
           <div className="form-control">
-            <label>Confirm Password:</label>
+            <label className="form-label">Confirm Password:</label>
             <input
               type="password"
               name="confirmPassword"
