@@ -1,0 +1,20 @@
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.signup-page {
+  /* background-color: aquamarine; */
+  padding: 5%;
+  width: 100%;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+.signup-form {
+  gap: 1rem;
+  padding: 1rem;
+  /* background-color: aqua; */
+}
