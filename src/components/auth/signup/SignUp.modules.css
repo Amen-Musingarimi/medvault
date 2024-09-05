@@ -43,13 +43,15 @@
   color: gray;
 }
 
-.form-control input {
+.form-control input,
+.form-control select {
   width: 100%;
   border: 1px solid gray;
   padding: 0.5rem;
   border-radius: 4px;
 }
 
-.form-control input:focus {
-  outline: 1px solid green;
+.form-control input:focus,
+.form-control select:focus {
+  outline: 1px solid #008080;
 }
